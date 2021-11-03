@@ -47,8 +47,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Download documents
         uses: actions/download-artifact@v2
-          with:
-            path: deploy/
+        with:
+          path: deploy/
       - name: List documents
         run: ls -R
         working-directory: deploy
