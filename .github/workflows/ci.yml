@@ -38,7 +38,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: ${{ matrix.document }}
-          path: deploy/*.pdf
+          path: deploy/
   deploy_website:
     runs-on: ubuntu-latest
     needs: build_latex
