@@ -1,0 +1,95 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt,a4paper,sans]{moderncv/moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
+
+\moderncvtheme[red]{casual}
+% CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+% CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[scale=0.75]{geometry} % Reduce document margins
+\recomputelengths
+
+\usepackage{fontawesome}
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+%\setlength{\hintscolumnwidth}{3cm} % Uncomment to change the width of the dates column
+%\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
+
+\input{env.tex}
+
+\renewcommand{\phonesymbol}{\faicon{phone}\ }
+\renewcommand{\emailsymbol}{\faicon{envelope}\ }
+\renewcommand{\addresssymbol}{\faicon{location-arrow}\ }
+\renewcommand{\mobilesymbol}{\faicon{mobile}\ }
+\renewcommand{\homepagesymbol}{\faicon{link}\ }
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION SECTION
+%----------------------------------------------------------------------------------------
+
+\firstname{Giordon} % Your first name
+\familyname{Stark} % Your last name
+
+% All information in this block is optional, comment out any lines you don't need
+\title{Research Statement}
+\address{SCIPP, NS2, Room \#337}{1156 High Street}{Santa Cruz, CA\,\,\,95064} % street, city, country
+%\mobile{(302) 584 3464}
+%\phone{(000) 111 1112}
+%\fax{(000) 111 1113}
+\email{gstark@cern.ch}
+\homepage{https://giordonstark.com}
+\extrainfo{\footnotesize Built \httplink[\today]{https://github.com/kratsg/cv/actions/runs/\RUNNUMBER}\ from \httplink[\faicon{github}@\COMMITHASH]{https://github.com/kratsg/faculty-statements/tree/\COMMITHASH}}
+\photo[70pt][0.4pt]{pictures/me.jpg} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
+%\quote{Some quote}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+\makecvtitle % Print the CV title
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Previous Research Experience}
+My research aims to address the question, 'How can data from new experiments best tell us when we should/must abandon simple models for a more complex representation, and in what regimes of operation are simplified models reliable?' My past research has helped to answer this question by making novel measurements quantifying three-dimensional unsteady fluid flows at device relevant scales, and I have experience comparing with simulation. However, in general I am interested in exploring the impact of turbulent flow on the molecular mixing required to initiate and sustain any chemical reaction or transport process (e.g. ignition and flame propagation, electrolyte transport in flow batteries, clot formation to close an embolism, cooling potential of a compact heat exchanger), an area broadly referred to as 'Turbulence/Chemistry Interaction' and 'Thermo-fluids research.'
+
+{\hskip 2em}Details of my previous research work are available in my CV, but I would like to highlight my interests in  diagnostic development for infrared imaging detection. The measurement capabilities of this diagnostic are just beginning to be understood, and I will continue to eagerly pursue and develop this measurement technique. I am also interested in continuing to make advanced measurements in combustion that can assess the impact of scalar dissipation on the ignition and inflammation of a mixture.\\
+%----------------------------------------------------------------------------------------
+\section{Research Goals}
+There is a pressing need for analogous metrics for three dimensional and/or unsteady flows to intuitive but stochastically developed correlations like the 'fully developed boundary layer.' Particularly necessary are those quantities which will be compared to CFD in highly turbulent unsteady domains. %Defining these quantities must allow modelers and experimentalists to explore trends and compare the relative rate of convergence of their simulations and measurements with analytical solutions and physically motivated reduced order models. My work in entrainment for confined jets, and shockwave boundary layer structure is just the beginning.
+My expertise in experimental measurement provides me with a solid foundation of data upon which to build new theoretical explanations. Vital breakthroughs in measurement technique and application are needed to understand flames at solid boundaries, along broken-edge flames, and during early ignition (among others.) New experimental measurements at a foundational level are required to supplant the ad-hoc assumptions made in many modeling approaches. I will build off my thesis and post-doctoral experiences to further understand turbulent 3D reacting flows through validation quality measurements including uncertainty quantification.
+
+{\hskip 2em}I aim to develop a reputation as world-class expert in turbulence/chemistry interaction as applied to the areas of energy, health, and the environment. My passions lead me to work on problems with large societal impacts both improving human health and achieving net zero-carbon transportation technology through a deeper understanding of the fundamental organization and control of turbulent fluids. Currently flows are classified as either laminar or turbulent, but a variety of control strategies are available that allow one to imagine a particular 'turbulent flow' property giving better performance than another. However, categorization of the topology and stability of these flows is needed if engineers are to make use of them in practical design. My contributions to turbulence-chemistry interaction will be to provide novel experimental measurements through development and application of time-resolved optical diagnostics.
+
+{\hskip 2em}To be successful as a starting faculty, I plan to start from simple 'unit' problems where I can explore the influence of boundary conditions in simple flow problems while developing diagnostic capability (e.g. infrared measurements of hydrocarbon distribution in atmospheric jet flames). After demonstrating success there, I will move to intermediate 'surrogates' to explore coupling in the physics between two or more 'unit' influences (direct injection spray combustion measurements in a rapid compression machine), and finally design experiments at prototype scales (e.g. high-pressure premixed lean-burn GE:TAPS combustor, or an optically accessible IC Engine) bringing together all of the above but often including an onerous requirement to attempt to 'measure everything all the time.' I welcome a chance to discuss my research plans in more depth with faculty colleagues during a campus visit.  I also plan to leverage my connections at Sandia to continue a relationship of data sharing, publishing, and prototype-scale facility access. Data analysis including uncertainty quantification underlie all of my research and publication plans.
+
+{\hskip 2em}I have contacts to funding sponsors at the DOE, with NSF program managers in the turbulence and combustion sub-areas, and at DOD including AFRL and NRL, and will seek the support of these agencies through responses to FOAs regularly put out by these venues. I would be interested in exploring collaborative research with others outside my discipline and I also plan to vigorously pursue NSF, DOD, and DOE career awards, as well as NSF equipment funds.
+ %{\hskip 3em}Let's start from a simple 'unit' system, for example, an atmospheric free jet/flame having a small number of well controlled boundary conditions. This is the only scale amenable to DNS comparison. Workshops like the Sandia Turbulent Non-Premixed Flame(TNF) are built around similar cases. The only downside is a lack parity with an applied problem of interest(e.g. high pressure internal combustion.)  The  approach is to systematically vary the important(sensitive) boundary conditions to measure the system response. Often this allows very powerful regime maps to be created that describe basic physical insights given various 'limiting behaviors.' Advantages of this approach are the relatively limited equipment costs (with comparatively high diagnostics cost.) Ultimately however, this type of program allows an experimentalist to 'hit the ground running' while waiting for funding for steps two and three to materialize.
+%{\hskip 2em}The second step in my research plan is between the unit physics described above and a full working prototype.  I'll call this a 'surrogate' system. This space contains examples like constant volume combustion, rapid compression, and/or plug flow facilities to study direct injection, ignition, and low temperature chemistry.  Although approximating more realistic engine conditions, they couple only a few of the 'unit' physics together, but they are useful for testing 'multi-physics' modeling packages. Building experiments in this space is challenging because of the 'unknown unknowns' that is, the unintended consequences of only 'plugging in' a few of the feedback mechanisms. Given the 'goldlocks' nature of the physics of interest and intermediate costs to do research here, much academic and industrial partnership work ultimately 'tops out' at this scale.
+%{\hskip 2em}However, the final step in my research plan is operating and learning at the device or prototype scale, e.g. a full engine. Device scale operating costs and the required number of parametric controls makes this program the most challenging but the most rewarding.  It is only with the regime-based and coupled-physical insight drawn from the simpler cases that rigourous 'explanatory' experiments are possible. That is, are we sure a simple change in input 'causes' the change in output, despite our awareness of the boundary and fully coupled physics? It was while reading 'Objectivity' by Harvard historian of science Peter Galison that I came across an accurate distinction between a scientist and an engineer. The scientist attempts to understand, while the engineerâ€™s goal is simply to intervene, in the limit, regardless of understanding.
+%{\hskip 2em}My personal experience is that device scale experiments have often become too safe. Experiments are sometimes implemented with only one goal, model validation. %This is a sufficient purpose for some, but we still await the elusive dream of fully predictive simulation.
+%Because of incremental program requirements, experiments that demonstrate large-scale or regime switching perturbations that can't be accurately predicted \emph{are prevented, avoided, or ignored} rather than explored.
+%{\hskip 2em}%I hope to balance experiments where I can anticipate the answers with those which I cannot.
+%I envision building a research program that attempts not only to validate our current understanding with lab scale experiments, but to also push (and push hard!) on the boundary of what we don't understand.
+Furthermore, I recognize the importance of recruiting and mentoring graduate students to make my research plans a success. In particular, I am committed to responsible and safe conduction of research and to recruiting from a diverse pool of students. I plan to quickly develop positive working and mentoring relationships to enhance both my own and my student's success. %Particularly attractive is my knowledge of Michigan's dedication to interdisciplinary research aimed at solving high impact problems, and strong pool of undergraduates, graduate students, and faculty collaborators.
+\section{Teaching}
+My teaching interests span experiments in fluids, theoretical fluid dynamics, thermodynamics, and combustion.  I won College of Engineering, and Rackham Graduate School outstanding instructor awards while at Michigan and I enjoy interactions with students, and look forward to inviting undergraduates from the classroom into the research lab. While I am able to teach a wider range of introductory courses at the undergraduate level if necessary, I would feel most comfortable starting in the areas of experimental and theoretical fluid dynamics. I feel I could teach the following courses with a high level of expertise:
+
+$\bullet{}$ Undergraduate: Thermodynamics, In/compressible Flows, Instrumentation (Lab), Combustion\\
+$\bullet{}$ Graduate: Turbulent-Compressible-Viscous Flows, Combustion, Optical and Laser Diagnostics
+
+{\hskip 2em}I believe that a comprehensive set of courses on fundamental viscous and turbulent flows would be a worthwhile addition to a core competency at the undergraduate level. Drawing motivation from sustainable practices used aboard the space station, I am also interested in developing innovative courses that are applicable to sustainability in engineering. Finally, I propose an graduate level technical communications class. Topics would include giving technical presentations, and technical writing and reviewing, and an assignment to prepare an NSF-like fellowship grant proposal. The students will read current journal articles in their area of study, practice writing article reviews, and present summary (review) lectures on these advanced topics.  Although my experience is in the context of fluids, the class could be thought of as graduate research program development as well as practice at professionalization for students.
+
+{\hskip 2em}I cultivate the following attitudes in students who complete course work or research with me:
+
+$\bullet{}$ demonstrate understanding of rigorous mathematical tools for design/analysis, (Teach others)
+
+$\bullet{}$ exhibit audience driven communication strategies, (Justify and explain the importance of research)
+
+$\bullet{}$ establish sound environmental/ethical/social reasoning. (Think long term, not just short term)
+
+\end{document}
