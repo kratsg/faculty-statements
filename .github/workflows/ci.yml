@@ -18,7 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        document: ['main']
+        document:
+          - main
+          - berkeley_diversity
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
