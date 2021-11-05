@@ -21,6 +21,7 @@ jobs:
         document:
           - main
           - berkeley_diversity
+          - berkeley_teaching
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
