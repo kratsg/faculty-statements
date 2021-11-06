@@ -22,6 +22,7 @@ jobs:
           - main
           - berkeley_diversity
           - berkeley_teaching
+          - berkeley_research
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
