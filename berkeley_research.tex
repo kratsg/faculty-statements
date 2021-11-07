@@ -54,6 +54,43 @@
 % https://tex.stackexchange.com/a/47005/32511
 \renewcommand*{\bibliographyhead}[1]{\section{#1}}
 \makecvtitle % Print the CV title
+\vspace*{-2em}
+
+\section{Introduction}
+
+All matter interacts via the four fundamental forces: gravitational, electromagnetic, weak, and strong, at least up to the scale of the weak interactions. Gravity is very well-described by Einstein's theory of General Relativity. The other three forces, by a group of theories encapsulating fundamental particle physics and the interactions of all known elementary particles; the Standard Model (SM). It comprises a single, concise model of two theories: the Glashow-Weinberg-Salam theory Quantum Electrodynamics (QED) which describes the electromagnetic and weak nuclear forces, and Quantum Chromodynamics (QCD), which describes the strong nuclear force. The Standard Model has stood up to rigorous decades of testing by many experiments and has shown to be robust. Even given the experimental success, this is not the complete model. Physicists need to reconcile current tensions between theory and experimental measurements:\\
+
+\begin{itemize}
+ \item the matter/anti-matter asymmetry not observed in the detector~\cite{canetti2012matter},
+ \item the fine-tuning required to the quantum corrections to keep the Higgs mass around the electroweak scale~\cite{Baer:2013ava},
+ \item the lack of inclusion of gravity, and the lack of dark matter candidates~\cite{bertone2005particle} even though it is largely agreed upon that dark matter exists~\cite{Ade:2015xua},
+ \item the scale difference between the Planck scale and the Electroweak scale (the so-called Hierarchy problem)~\cite{tHooft:1980xss},
+ \item and many more~\cite{doi:10.1143/PTP.36.1266, VOLKOV1973109, ArkaniHamed:1998rs, Randall:1999ee}
+\end{itemize}
+
+I imagine myself like Sherlock Holmes, using the footprints of the collision data to look for patterns to reconstruct a picture of the actual collision. The enormous energy scale of the proton-proton collisions at the ATLAS detector produces showers of Lorentz-boosted partons that form SM hadrons (with interesting substructure) and a large amount of missing transverse momentum (MET). A tell-tale signature of many beyond the Standard Model (BSM) theories.\\
+\\
+Since 2014, my primary research at the Large Hadron Collider (LHC) has been focused around one such group of theories known as Supersymmetry (SUSY)~\cite{Golfand:1971iw, Volkov:1973ix, Wess:1974tw, Wess:1974jb, Ferrara:1974pu, Salam:1974ig}. SUSY is a generalization of space-time symmetries that predicts new bosonic partners for the fermions and new fermionic partners for the SM bosons, all with spins differing by $\frac{1}{2}$ unit.
+
+\section{Graduate Experience}
+During my graduate studies at The University of Chicago, I focused on reconstructing new physics in hadronic final states and upgrading the trigger instrumentation of the ATLAS detector~\cite{Stark2020}. My analysis team set the most robust limits on the mass of the superpartner to the SM gluon particle, the gluino~\cite{SUSY-2016-10, SUSY-2015-10}. We looked for pair production of gluinos that decayed via strong interactions with third-generation SM particles. This particular search is challenging due to the high multiplicity of objects required: a large amount of missing energy from a stable lightest supersymmetry partner (a dark matter particle candidate), and clusters of hadronic energy originated from three different b-quarks in the event. However, this analysis was limited in part due to its tight requirement on missing energy. I collaborated with technicians, engineers, and scientists to design the first dedicated hardware trigger that efficiently selected events containing Lorentz-boosted hadronic objects and significant missing energy~\cite{Begel:2233958, Tang:2104248}. This work used state-of-the-art embedded processor technologies to process the entire ATLAS calorimeter on a single board and make a decision in 25 nanoseconds. My colleagues have installed the hardware in the ATLAS detector for the upcoming Run 3 of the LHC.
+
+\section{Postdoctoral Experience}
+As a postdoc at SCIPP, UC Santa Cruz, I have been in the process of fleshing out my research program within the ATLAS collaboration. I started expanding my BSM portfolio with an ongoing search for SUSY via electroweak production. In parallel, I was getting frustrated by the lack of communication and collaboration with particle theorists and phenomenologists. It was apparent that the data the LHC experiments published alongside a paper was not sufficient to allow theorists/phenomenologists to collaborate with us effectively, a multi-pronged problem. The status quo of analysis in ATLAS needed a push to move towards analysis preservation and reproducibility. Outside of ATLAS, we required theorists to come to an agreement on standard formats for various data products~\cite{Cranmer:2021urp, Heinrich2021}. Alongside a handful of colleagues within the ATLAS experiment, we started an aggressive campaign to get the analysis encoded in a reproducible workflow and kickstarted the effort for publishing statistical models used in the ATLAS SUSY program~\cite{ATL-PHYS-PUB-2019-029}.\\
+\\
+Since 2018, I have led the ATLAS SUSY ``summary'' effort involving combinations of different analysis signatures for various SUSY models. Similar to the likelihood effort, I knew there would be a need for a harmonization effort. Through my role as the SUSY Combinations Team Contact, I provided recommendations for object identification and selection criteria, developed the toolchains necessary to combine analyses, and performed statistical combinations of likelihoods. Then starting in 2020, a SUSY Summaries subgroup formed. I became the subgroup convener in recognition of the significant efforts I had made thus far. I continue to lead multiple combination efforts for SUSY models that involve electroweak interactions and third-generation particles. I am also overseeing the Run 2 ATLAS Phenomenological Minimal Supersymmetric Standard Model (pMSSM) effort. The pMSSM scans chart out the ATLAS collaboration's sensitivity reach on a 19-dimensional globe of SUSY. They will identify poorly-covered/uncovered regions of phase-space that a new analysis could target. These efforts would not have been possible without my previous work on a standardized likelihood format and pushing for reproducible analysis workflows.
+
+\section{Research Plans}
+
+\subsection{Compressed SUSY}
+
+\subsection{Global Fits}
+
+\subsection{Unfolding + Likelihoods}
+
+\subsection{ML4FPGAs / improved hardware-based triggers for Run 4?}
+
+\section{Summary}
 
 \printbibliography
 
