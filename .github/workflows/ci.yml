@@ -20,9 +20,10 @@ jobs:
       matrix:
         document:
           - main
+          - berkeley_cover
           - berkeley_diversity
-          - berkeley_teaching
           - berkeley_research
+          - berkeley_teaching
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
