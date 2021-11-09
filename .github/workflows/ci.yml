@@ -22,6 +22,7 @@ jobs:
           - main
           - berkeley_cover
           - berkeley_diversity
+          - berkeley_publications
           - berkeley_research
           - berkeley_teaching
     steps:
