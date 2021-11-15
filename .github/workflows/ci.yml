@@ -25,6 +25,11 @@ jobs:
           - berkeley_publications
           - berkeley_research
           - berkeley_teaching
+          - ubc_cover
+          - ubc_diversity
+          - ubc_publications
+          - ubc_research
+          - ubc_teaching
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
