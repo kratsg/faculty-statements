@@ -30,6 +30,11 @@ jobs:
           - ubc_publications
           - ubc_research
           - ubc_teaching
+          - uchicago_cover
+          - uchicago_diversity
+          - uchicago_publications
+          - uchicago_research
+          - uchicago_teaching
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
