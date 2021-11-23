@@ -1,0 +1,87 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt,a4paper,sans]{moderncv/moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
+
+\moderncvtheme[red]{casual}
+% CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+% CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[top=1cm, bottom=3cm]{geometry} % Reduce document margins
+\recomputelengths
+
+\usepackage{fontawesome}
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+%\setlength{\hintscolumnwidth}{3cm} % Uncomment to change the width of the dates column
+%\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
+
+\input{env.tex}
+
+\renewcommand{\phonesymbol}{\faicon{phone}\ }
+\renewcommand{\emailsymbol}{\faicon{envelope}\ }
+\renewcommand{\addresssymbol}{\faicon{location-arrow}\ }
+\renewcommand{\mobilesymbol}{\faicon{mobile}\ }
+\renewcommand{\homepagesymbol}{\faicon{link}\ }
+
+\usepackage[backend=biber,sorting=none]{biblatex}
+\addbibresource{bib/main.bib}
+
+\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION SECTION
+%----------------------------------------------------------------------------------------
+
+\firstname{Giordon} % Your first name
+\familyname{Stark\\[-0.6em]{\fontsize{14}{0}\mdseries\upshape Pronouns: he/him/point}} % Your last name
+
+% All information in this block is optional, comment out any lines you don't need
+\title{Diversity, Equity, and Inclusion Statement}
+\address{SCIPP, NS2, Room \#337}{1156 High Street}{Santa Cruz, CA\,\,\,95064} % street, city, country
+%\mobile{(302) 584 3464}
+%\phone{(000) 111 1112}
+%\fax{(000) 111 1113}
+\email{gstark@cern.ch}
+\homepage{giordonstark.com}
+\extrainfo{\footnotesize Built \href{https://github.com/kratsg/faculty-statements/actions/runs/\RUNNUMBER}{\today}\ from \href{https://github.com/kratsg/faculty-statements/tree/\COMMITHASH}{\faicon{github}@\COMMITHASH}}
+\photo[70pt][0.4pt]{pictures/me.jpg} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
+%\quote{Some quote}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+% https://tex.stackexchange.com/a/47005/32511
+\renewcommand*{\bibliographyhead}[1]{\section{#1}}
+\makecvtitle % Print the CV title
+\vspace*{-2em}
+
+``Giordon will not ever achieve beyond a 3rd-grade reading level,'' all the teachers told my parents when I was young. Now, I have a Ph.D., but I'm not sure that says anything about my reading level. I continue to get discriminatory and stereotypical comments to this day. I was born with a severe-to-profound hearing loss, and I grew up calling myself ``hearing impaired'' or ``hard-of-hearing''. The entirety of my childhood relied on the advocacy of the adults around me: my parents, my teachers, the principals, and the school district Board of Education. In South Florida, where I grew up, there wasn't a deaf community, as most of the folks there with hearing loss are the geriatric crowd (and this is still pretty true today!). I got by with the tools we found at the time, such as getting an Individual Education Plan (IEP), getting speech therapy to ``fit in'' with my oral environment, using an FM system for sound amplification, and trying to keep my class sizes small. Often, my parents would change the school if there were issues with access to my education. Society should adapt itself to be more accessible to its members, not the other way around.
+\\
+\\
+Once I entered Caltech for my undergraduate studies, this story changed into developing my self-advocacy and not relying so much on others. I started calling myself ``deaf'' as I learned more about my community and became more involved in the disability rights social movement that has been slowly taking root. I didn't quite find my footing until towards the end of my 2nd year in college, when I learned about the availability of real-time steno captioning, often called CART (Communication Access Realtime Translation), and requested this more often. I also relied on a letter that I sent to my teachers ahead of time explaining my needs, such as requesting that the teacher never speak facing a wall because I can't lip-read the back of their head. Looking back today, I am shocked by how little access I got to the world-class education there. The extra labor I undertook made it that much harder to succeed in a system built around non-disabled people.
+\\
+\\
+Since starting my physics career in particle physics at the University of Chicago, I have called myself ``Deaf'', meaning a part of the ``Deaf'' community and culture. Within this microcosm of our society, I appreciate the power of labels. I take advantage of the American Sign Language (ASL) interpreting services and CART available to me. There is a great deal of experience gained from learning to interact with the university bureaucracy when it comes to arranging services and making sure my education, and later my work, remains accessible. The additional effort is on top of self-advocacy, and so I recognize the challenges that students coming to a university setting will face when they need to reach out for their access. I want to reduce the barriers students have to access their education, to make it easier than it has been for me.
+\\
+\\
+In 2018, I started on the US ATLAS Diversity and Inclusion committee and served as a contact for anonymous concerns reported by the US members of the ATLAS Collaboration. My role was to help US ATLAS management make the US ATLAS Collaboration an inclusive environment to do science. For example, a meeting checklist~\cite{SnowmassLOI} was put together for organizers to go through to help them make their meetings accessible and inclusive. This list had items for the organizing committee, such as ensuring the venue was physically accessible and providing guidelines for promotional material, registration, and the agenda/program itself.
+\\
+\\
+In parallel to the committee work, I also try to make physics more accessible to a particular underrepresented population: Deaf people. Developing new signs for ASL is a rather tricky thing because I am not a linguistic expert in American Sign Language (or any sign language for that matter). Instead, I collaborate with a team of Deaf linguistic experts. My content expertise, combined with their ASL mastery, produced new draft signs to add to the existing lexicon of ASL~\cite{ICPS2021, MatterInterpretation}.
+\\
+\\
+UPenn has done a great job spearheading initiatives to promote diversity and inclusion to combat the racial disparities in access to higher education. In particular, a key piece is to provide demographic information to understand where to focus these efforts. Our "normal" is not equitable, as we've seen recently during the COVID-19 pandemic, with disparate impacts on marginalized communities. From a rise of hate crimes against the Asian and Asian American community, a rollback of rights and healthcare protections for LGBTQ+ Americans, to disabled Americans trying to make ends meet with a woefully inadequate and outdated Social Security system... we must do better.
+\\
+\\
+Everyone at an institute is responsible for promoting a more inclusive environment and must be proactive about DEI. At UPenn, I will enhance diversity and opportunity for individuals from historically underrepresented backgrounds and communities. I will actively seek resources to support students in my research lab and my departments, such as engaging with the local Philadelphia community to make an impact. I will make all efforts to make sure my research is approachable to undergraduates and accessible for those where English is not their L1 (a speaker's first language). And lastly, I will use my position and privilege to speak up when appropriate or otherwise make the space to allow the marginalized voices to be heard and understood. I will bake all of the above into a laboratory Code of Conduct that promotes an equitable and safe environment for science and socializing.
+\\
+\\
+I believe my intersectionality as a Deaf Ph.D. in Physics - the only one in America right now - provides me with insight into the spectrum of challenges faced by minorities and underrepresented populations. People realize that there are perspectives within particle physics that are pretty under-represented, and it would be beneficial if we took steps to ensure everything we do is accessible. If there is one thing to take away from this statement, know that I will always keep an open mind, educate myself, and work with you to dismantle systemic challenges that our community members, including me, continue to face.
+
+\printbibliography
+
+\end{document}

@@ -35,6 +35,9 @@ jobs:
           - uchicago_publications
           - uchicago_research
           - uchicago_teaching
+          - upenn_diversity
+          - upenn_research
+          - upenn_teaching
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
