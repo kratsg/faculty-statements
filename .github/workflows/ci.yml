@@ -38,6 +38,8 @@ jobs:
           - upenn_diversity
           - upenn_research
           - upenn_teaching
+          - panofsky_cover
+          - panofsky_research
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
