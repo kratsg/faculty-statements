@@ -40,6 +40,7 @@ jobs:
           - upenn_teaching
           - panofsky_cover
           - panofsky_research
+          - honeycomb_cover
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
