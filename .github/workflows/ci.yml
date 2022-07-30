@@ -89,15 +89,16 @@ jobs:
 
       - name: Move to deploy directory
         run: |
-          find artifacts -name "*.pdf" -print0 | xargs -0 -I file mv "file" ${{ steps.pages.outputs.base_path }}
-          cp -R deploy/* ${{ steps.pages.outputs.base_path }}
+          find artifacts -name "*.pdf" -print0 | xargs -0 -I file mv "file" deploy/
 
       - name: List documents
         run: ls -R
         working-directory: deploy
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1 # This will automatically upload an artifact from the '/_site' directory
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: deploy/
 
   deploy:
     if: github.ref == 'refs/heads/main'
