@@ -62,7 +62,7 @@ jobs:
           root_file: ${{ matrix.document }}.tex
 
       - name: Upload document
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
           name: ${{ matrix.document }}
           path: ${{ matrix.document }}.pdf
@@ -73,11 +73,11 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v3
-        
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v1
-        
+
       - name: Download documents
         uses: actions/download-artifact@v2
         with:
@@ -95,10 +95,10 @@ jobs:
       - name: List documents
         run: ls -R
         working-directory: deploy
- 
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1 # This will automatically upload an artifact from the '/_site' directory
-        
+
   deploy:
     if: github.ref == 'refs/heads/main'
     environment:
