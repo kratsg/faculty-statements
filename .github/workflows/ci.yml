@@ -64,7 +64,7 @@ jobs:
       - name: Upload document
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ matrix.document }}
+          name: z-${{ matrix.document }}
           path: ${{ matrix.document }}.pdf
 
   prepare_website:
