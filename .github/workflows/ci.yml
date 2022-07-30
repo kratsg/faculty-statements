@@ -89,8 +89,8 @@ jobs:
 
       - name: Move to deploy directory
         run: |
-          find artifacts -name "*.pdf" -print0 | xargs -0 -I file mv "file" ${{ steps.pages.outputs.base_path }}/.
-          cp -R deploy/* ${{ steps.pages.outputs.base_path }}/.
+          find artifacts -name "*.pdf" -print0 | xargs -0 -I file mv "file" ${{ steps.pages.outputs.base_path }}
+          cp -R deploy/* ${{ steps.pages.outputs.base_path }}
 
       - name: List documents
         run: ls -R
