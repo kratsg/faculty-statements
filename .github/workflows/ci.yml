@@ -62,7 +62,7 @@ jobs:
           root_file: ${{ matrix.document }}.tex
 
       - name: Upload document
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.document }}
           path: ${{ matrix.document }}.pdf
