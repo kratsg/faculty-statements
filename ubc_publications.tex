@@ -2,7 +2,7 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[10pt,a4paper,sans]{moderncv/moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
+\documentclass[10pt,a4paper,sans]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
 
 \moderncvtheme[red]{casual}
 % CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
@@ -13,15 +13,15 @@
 \usepackage[top=1cm, bottom=3cm]{geometry} % Reduce document margins
 \recomputelengths
 
-\usepackage{fontawesome}
+\usepackage{fontawesome5}
 
 \input{env.tex}
 
-\renewcommand{\phonesymbol}{\faicon{phone}\ }
-\renewcommand{\emailsymbol}{\faicon{envelope}\ }
-\renewcommand{\addresssymbol}{\faicon{location-arrow}\ }
-\renewcommand{\mobilesymbol}{\faicon{mobile}\ }
-\renewcommand{\homepagesymbol}{\faicon{link}\ }
+\renewcommand{\phonesymbol}{\faIcon{phone}\ }
+\renewcommand{\emailsymbol}{\faIcon{envelope}\ }
+\renewcommand{\addresssymbol}{\faIcon{location-arrow}\ }
+\renewcommand{\mobilesymbol}{\faIcon{mobile}\ }
+\renewcommand{\homepagesymbol}{\faIcon{link}\ }
 
 \usepackage[backend=biber,sorting=none]{biblatex}
 \addbibresource{bib/main.bib}
@@ -43,7 +43,7 @@
 %\fax{(000) 111 1113}
 \email{gstark@cern.ch}
 \homepage{giordonstark.com}
-\extrainfo{\footnotesize Built \href{https://github.com/kratsg/faculty-statements/actions/runs/\RUNNUMBER}{\today}\ from \href{https://github.com/kratsg/faculty-statements/tree/\COMMITHASH}{\faicon{github}@\COMMITHASH}}
+\extrainfo{\footnotesize Built \href{https://github.com/kratsg/faculty-statements/actions/runs/\RUNNUMBER}{\today}\ from \href{https://github.com/kratsg/faculty-statements/tree/\COMMITHASH}{\faIcon{github}@\COMMITHASH}}
 \photo[70pt][0.4pt]{pictures/me.jpg} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
 %\quote{Some quote}
 
