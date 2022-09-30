@@ -46,6 +46,11 @@ jobs:
           - panofsky_cover
           - panofsky_research
           - honeycomb_cover
+          - harvard_cover
+          - harvard_diversity
+          - harvard_publications
+          - harvard_research
+          - harvard_teaching
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v3
