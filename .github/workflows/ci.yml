@@ -57,6 +57,11 @@ jobs:
           - ubc22_publications
           - ubc22_research
           - ubc22_teaching
+          - smu_cover
+          - smu_diversity
+          - smu_publications
+          - smu_research
+          - smu_teaching
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v3
