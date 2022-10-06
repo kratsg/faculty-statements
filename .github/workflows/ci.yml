@@ -68,6 +68,7 @@ jobs:
           - sbu_research
           - sbu_teaching
           - mcgill_cover
+          - mcgill_lors
           - mcgill_diversity
           - mcgill_research
           - mcgill_teaching
