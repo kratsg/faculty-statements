@@ -97,6 +97,7 @@ jobs:
           sudo apt update
           sudo apt install ghostscript -y
           gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf ${{ matrix.document }}.pdf
+          du -sh *.pdf
           mv output.pdf ${{ matrix.document }}.pdf
 
       - name: Upload document
