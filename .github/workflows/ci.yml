@@ -67,6 +67,10 @@ jobs:
           - sbu_publications
           - sbu_research
           - sbu_teaching
+          - mcgill_cover
+          - mcgill_diversity
+          - mcgill_research
+          - mcgill_teaching
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v3
