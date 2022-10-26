@@ -117,7 +117,8 @@ jobs:
 
   prepare_website:
     runs-on: ubuntu-latest
-    if: always()
+    needs: [build_latex, use_cache]
+    if: {{ always() && !cancelled() }}
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v3
