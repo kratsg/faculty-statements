@@ -40,7 +40,7 @@ jobs:
           ALL_FILES=$(find . -type f -name "*.tex" | xargs -n1 basename | sed 's/.tex//g' | jq -R -s -c 'split("\n")[:-1]')
           echo "::set-output name=all_files::${ALL_FILES}"
           printf "Setting all_files=${ALL_FILES}\n"
-          CHANGED_FILES=$(printf ${{ toJSON(steps.filter.outputs.changed_files) }} | sed 's/.tex//g' | jq -c '.[] |= split("/")[1]')
+          CHANGED_FILES=$(printf ${{ toJSON(steps.filter.outputs.changed_files) }} | sed 's/.tex//g' | jq -c '.[] |= .')
           echo "::set-output name=changed_files::${CHANGED_FILES}"
           printf "Setting changed_files=${CHANGED_FILES}\n"
           UNCHANGED_FILES=$(jq -n -c --argjson all_files ${ALL_FILES} --argjson changed_files ${CHANGED_FILES} '$all_files-$changed_files')

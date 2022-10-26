@@ -1,0 +1,72 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt,a4paper,sans]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
+
+\moderncvtheme[red]{casual}
+% CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+% CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[top=1cm, bottom=2.5cm, left=1cm, right=1cm]{geometry} % Reduce document margins
+\recomputelengths
+
+\usepackage{fontawesome5}
+
+\input{env.tex}
+
+\renewcommand{\phonesymbol}{\faIcon{phone}\ }
+\renewcommand{\emailsymbol}{\faIcon{envelope}\ }
+\renewcommand{\addresssymbol}{\faIcon{location-arrow}\ }
+\renewcommand{\mobilesymbol}{\faIcon{mobile}\ }
+\renewcommand{\homepagesymbol}{\faIcon{link}\ }
+
+\usepackage[backend=biber,sorting=none]{biblatex}
+\addbibresource{bib/main.bib}
+\addbibresource{bib/stanford.bib}
+
+\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION SECTION
+%----------------------------------------------------------------------------------------
+
+\firstname{Giordon} % Your first name
+\familyname{Stark\\[-0.6em]{\fontsize{14}{0}\mdseries\upshape Pronouns: he/him/point}} % Your last name
+
+% All information in this block is optional, comment out any lines you don't need
+\title{Teaching Statement}
+\address{SCIPP, NS2, Room \#337}{1156 High Street}{Santa Cruz, CA\,\,\,95064} % street, city, country
+%\mobile{(302) 584 3464}
+%\phone{(000) 111 1112}
+%\fax{(000) 111 1113}
+\email{gstark@cern.ch}
+\homepage{giordonstark.com}
+\extrainfo{\footnotesize Built \href{https://github.com/kratsg/faculty-statements/actions/runs/\RUNNUMBER}{\today}\ from \href{https://github.com/kratsg/faculty-statements/tree/\COMMITHASH}{\faIcon{github}@\COMMITHASH}}
+\photo[70pt][0.4pt]{pictures/me.jpg} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
+%\quote{Some quote}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+% https://tex.stackexchange.com/a/47005/32511
+\renewcommand*{\bibliographyhead}[1]{\section{#1}}
+\makecvtitle % Print the CV title
+\vspace*{-2em}
+
+When I first came to Caltech in 2008, I researched the history of Richard Feynman's career at the school, and the one philosophy of his that resonated with me is ``Lernen durch Lehren'', learning by teaching. Feynman once said, ``If you want to master something, teach it. A great way to learn is to teach.'' and I take it to heart. But honestly, I have always loved to teach. I take great pleasure in learning new concepts and explaining them to others, which helps reinforce what I learned. In a way, this is similar to a positive feedback loop and allows me to be self-critical, go back, and make sure I made no faulty assumptions or took anything for granted. On top of it all, I have had a relatively unique experience in academia (see my diversity statement!). My learned experience growing up as a deaf kid in oral schools gave me a mental checklist of guidelines for teaching others: be supportive, be humble, be kind, be accessible, be respectful, and be fun. I always feel like I can give back by being able to teach. The rest of this document will highlight how these tenets shape my role as an instructor: some strategies I have employed as a Teaching Assistant at the University of Chicago, and my efforts to improve the software literacy of our members of the ATLAS Collaboration.
+
+\section{Approachable Education}
+As a graduate student at The University of Chicago, I led recitation sections for core physics and laboratory classes as a Teaching Assistant. Two former TAs at Caltech inspired my teaching style: Professors Harvey Newman and Steven Frautschi. Harvey would look for esoteric or tricky teasers and use that time to talk through them with a blackboard and reveal the way his brain approaches problems like these in physics. His goal was to impart critical thinking skills and recognize patterns. Steven encouraged students to come up and work through the physics problems in real-time and provided feedback on the steps in our solution. At UChicago, I led interactive sessions that had a mix of challenging and straightforward problems. I solicited real-time feedback and continually adjusted my lesson plan for that hour based on student engagement. I also imagined myself as a student in my classroom and thought about what resources I could provide as an instructor that would allow me, as a student, to be more engaged. I have made it a habit to always furnish a write-up/copy of my lecture notes to all students beforehand. I am also happy to provide some examples of these materials to the committee upon request.
+
+\section{A Rising Tide Lifts All Boats}
+In the ATLAS experiment, a key ingredient to being a productive particle physicist is to have enough technical expertise to perform data analysis. In an international, scientific collaboration, sometimes that expertise or knowledge slips through the cracks. Sometimes the student who worked on the software for an analysis graduates out! Luckily there are modern tools and industry-wide systems at our disposal to ensure that continuity happens, but this requires teaching our colleagues new tricks~\cite{Malik2021, irishep2020, gitlabStory2018}. Since I started working in particle physics, I have instructed students, postdocs, junior and senior faculty at all skill levels from all socioeconomic backgrounds. I have organized and hosted boot camps to spend time on various software skills and techniques necessary to address the computing challenges in High Energy Physics (HEP). Participants come out of these workshops equipped to pursue or further their own research goals. They also come out with transferable skills to careers both inside and outside of HEP.
+
+\section{My Teaching Philosophy}
+I want to summarize my approach if I am a professor at Stanford. An essential aspect of my teaching philosophy is to recognize that all of us are involved in cutting-edge research, but we do not often share that passion in our classes. I will try to connect current research to the course material, although relating Hooke's law to non-perturbative views of hadronization in Quantum Chromodynamics is a stretch. Where possible, I will seek out various real-world examples to demonstrate the physics concepts I would be teaching to let my passion for physics shine through. Hands-on activities keep the students engaged and keep the class fun. I will support and expand physics outreach efforts in the local community, especially underrepresented populations, using my experience teaching particle physics to local schools via ATLAS Masterclass. Finally, I aim to keep my lectures approachable and accessible because I am acutely aware that my classrooms will be full of potential colleagues and students from all walks of life. I am satisfied when I can provide students with the same opportunities and access to education that I have been fortunate to receive.
+
+\printbibliography
+
+\end{document}
