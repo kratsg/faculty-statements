@@ -19,61 +19,42 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build_latex:
+
+  changes:
     runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.filter.outputs.changed }}
+      all_files: ${{ steps.set.outputs.all_files }}
+      changed_files: ${{ steps.set.outputs.changed_files }}
+      unchanged_files: ${{ steps.set.outputs.unchanged_files }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          list-files: json
+          filters: |
+            changed: *.tex
+      - id: set
+        run: |
+          ALL_FILES=$(find . -type f -name "*.tex" | xargs -n1 basename | sed 's/.tex//g' | jq -R -s -c 'split("\n")[:-1]')
+          echo "::set-output name=all_files::${ALL_FILES}"
+          printf "Setting all_files=${ALL_FILES}\n"
+          CHANGED_FILES=$(printf ${{ toJSON(steps.filter.outputs.changed_files) }} | sed 's/.tex//g' | jq -c '.[] |= split("/")[1]')
+          echo "::set-output name=changed_files::${CHANGED_FILES}"
+          printf "Setting changed_files=${CHANGED_FILES}\n"
+          UNCHANGED_FILES=$(jq -n -c --argjson all_files ${ALL_FILES} --argjson changed_files ${CHANGED_FILES} '$all_files-$changed_files')
+          echo "::set-output name=unchanged_files::${UNCHANGED_FILES}"
+          printf "Setting unchanged_files=${UNCHANGED_FILES}\n"
+
+  build_latex:
+    needs: [changes]
+    runs-on: ubuntu-latest
+    if: ${{ needs.changes.outputs.changed }}
     strategy:
       matrix:
-        document:
-          - main
-          - berkeley_cover
-          - berkeley_diversity
-          - berkeley_publications
-          - berkeley_research
-          - berkeley_teaching
-          - ubc_cover
-          - ubc_diversity
-          - ubc_publications
-          - ubc_research
-          - ubc_teaching
-          - uchicago_cover
-          - uchicago_diversity
-          - uchicago_publications
-          - uchicago_research
-          - uchicago_teaching
-          - upenn_diversity
-          - upenn_research
-          - upenn_teaching
-          - panofsky_cover
-          - panofsky_research
-          - honeycomb_cover
-          # 2022-2023
-          - harvard_cover
-          - harvard_diversity
-          - harvard_publications
-          - harvard_research
-          - harvard_teaching
-          - ubc22_cover
-          - ubc22_diversity
-          - ubc22_publications
-          - ubc22_research
-          - ubc22_teaching
-          - smu_cover
-          - smu_diversity
-          - smu_publications
-          - smu_research
-          - smu_teaching
-          - sbu_cover
-          - sbu_diversity
-          - sbu_publications
-          - sbu_research
-          - sbu_teaching
-          - mcgill_cover
-          - mcgill_lors
-          - mcgill_diversity
-          - mcgill_research
-          - mcgill_teaching
-          - bnl_cover
-          - bnl_research
+        document: ${{ fromJSON(needs.changes.outputs.all_files) }}
+
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v3
@@ -91,11 +72,13 @@ jobs:
           cat env.tex
 
       - name: Compile LaTeX document
+        if: ${{ contains(needs.changes.outputs.changed_files, matrix.document) }}
         uses: xu-cheng/latex-action@v2
         with:
           root_file: ${{ matrix.document }}.tex
 
       - name: Compress LaTeX document
+        if: ${{ contains(needs.changes.outputs.changed_files, matrix.document) }}
         run: |
           sudo apt update
           sudo apt install ghostscript -y
@@ -106,7 +89,7 @@ jobs:
       - name: Upload document
         uses: actions/upload-artifact@v3
         with:
-          name: z-${{ matrix.document }}
+          name: ${{ matrix.document }}
           path: ${{ matrix.document }}.pdf
 
   prepare_website:
