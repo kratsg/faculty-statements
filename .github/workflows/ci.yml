@@ -117,6 +117,7 @@ jobs:
 
   prepare_website:
     runs-on: ubuntu-latest
+    if: always()
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v3
