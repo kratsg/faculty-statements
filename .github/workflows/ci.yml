@@ -34,7 +34,7 @@ jobs:
         with:
           list-files: json
           filters: |
-            changed: *.tex
+            changed: '*.tex'
       - id: set
         run: |
           ALL_FILES=$(find . -type f -name "*.tex" | xargs -n1 basename | sed 's/.tex//g' | jq -R -s -c 'split("\n")[:-1]')
