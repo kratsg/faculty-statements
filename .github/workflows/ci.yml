@@ -50,20 +50,14 @@ jobs:
   build_latex:
     needs: [changes]
     runs-on: ubuntu-latest
-    if: ${{ needs.changes.outputs.changed }}
+    if: needs.changes.outputs.changed == 'true'
     strategy:
       matrix:
-        document: ${{ fromJSON(needs.changes.outputs.all_files) }}
+        document: ${{ fromJSON(needs.changes.outputs.changed_files) }}
 
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v3
-
-      - name: Cache document
-        uses: actions/cache@v3
-        with:
-          path: ${{ matrix.document }}.pdf
-          key: ${{ matrix.document }}
 
       - name: Inject environment variables
         run: |
@@ -85,6 +79,29 @@ jobs:
           gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf ${{ matrix.document }}.pdf
           du -sh *.pdf
           mv output.pdf ${{ matrix.document }}.pdf
+
+      - name: Upload document
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ matrix.document }}
+          path: ${{ matrix.document }}.pdf
+
+  use_cache:
+    needs: [changes]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        document: ${{ fromJSON(needs.changes.outputs.unchanged_files) }}
+
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+
+      - name: Cache document
+        uses: actions/cache@v3
+        with:
+          path: ${{ matrix.document }}.pdf
+          key: ${{ matrix.document }}
 
       - name: Upload document
         uses: actions/upload-artifact@v3
