@@ -37,7 +37,7 @@ jobs:
             changed: '!(env).tex'
       - id: set
         run: |
-          ALL_FILES=$(find . -type f -name "*.tex" | xargs -n1 basename | sed 's/.tex//g' | jq -R -s -c 'split("\n")[:-1]')
+          ALL_FILES=$(find . -type f -name "*.tex" -not -name "env.tex" | xargs -n1 basename | sed 's/.tex//g' | jq -R -s -c 'split("\n")[:-1]')
           echo "::set-output name=all_files::${ALL_FILES}"
           printf "Setting all_files=${ALL_FILES}\n"
           CHANGED_FILES=$(printf ${{ toJSON(steps.filter.outputs.changed_files) }} | sed 's/.tex//g' | jq -c '.[] |= .')
