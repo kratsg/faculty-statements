@@ -59,12 +59,6 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v3
 
-      - name: Cache document
-        uses: actions/cache@v3
-        with:
-          path: ${{ matrix.document }}.pdf
-          key: ${{ matrix.document }}
-
       - name: Inject environment variables
         run: |
           sed -i env.tex -e "s/GITHUBCOMMITHASH/${GITHUB_SHA:0:6}/g"
@@ -103,11 +97,9 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v3
 
-      - name: Cache document
-        uses: actions/cache@v3
-        with:
-          path: ${{ matrix.document }}.pdf
-          key: ${{ matrix.document }}
+      - name: Download previously built document
+        run: |
+          wget https://kratsg.github.io/faculty-statements/${{ matrix.document }}.pdf -O ${{ matrix.document }}.pdf
 
       - name: Upload document
         uses: actions/upload-artifact@v3
