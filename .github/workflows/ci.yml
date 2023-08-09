@@ -23,7 +23,7 @@ jobs:
   changes:
     runs-on: ubuntu-latest
     outputs:
-      changed: ${{ steps.filter.outputs.all_files }}
+      changed: ${{ steps.filter.outputs.changed }}
       all_files: ${{ steps.set.outputs.all_files }}
       changed_files: ${{ steps.set.outputs.changed_files }}
       unchanged_files: ${{ steps.set.outputs.unchanged_files }}
