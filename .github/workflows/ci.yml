@@ -23,9 +23,9 @@ jobs:
   changes:
     runs-on: ubuntu-latest
     outputs:
-      changed: 'true' #${{ steps.filter.outputs.changed }}
+      changed: ${{ steps.filter.outputs.changed }}
       all_files: ${{ steps.set.outputs.all_files }}
-      changed_files: ${{ steps.set.outputs.all_files }}
+      changed_files: ${{ steps.set.outputs.changed_files }}
       unchanged_files: ${{ steps.set.outputs.unchanged_files }}
     steps:
       - uses: actions/checkout@v3
@@ -89,7 +89,6 @@ jobs:
   use_cache:
     needs: [changes]
     runs-on: ubuntu-latest
-    if: false
     strategy:
       matrix:
         document: ${{ fromJSON(needs.changes.outputs.unchanged_files) }}
