@@ -1,0 +1,132 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt,a4paper,sans]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
+
+\moderncvtheme[red]{casual}
+% CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+% CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[top=1cm, bottom=3cm]{geometry} % Reduce document margins
+\recomputelengths
+
+\usepackage{fontawesome5}
+
+\input{env.tex}
+
+\renewcommand{\phonesymbol}{\faIcon{phone}\ }
+\renewcommand{\emailsymbol}{\faIcon{envelope}\ }
+\renewcommand{\addresssymbol}{\faIcon{location-arrow}\ }
+\renewcommand{\mobilesymbol}{\faIcon{mobile}\ }
+\renewcommand{\homepagesymbol}{\faIcon{link}\ }
+
+\usepackage[backend=biber,sorting=none]{biblatex}
+\addbibresource{bib/main.bib}
+\addbibresource{bib/nyu.bib}
+
+\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION SECTION
+%----------------------------------------------------------------------------------------
+
+\firstname{Giordon} % Your first name
+\familyname{Stark\\[-0.6em]{\fontsize{14}{0}\mdseries\upshape Pronouns: he/him/point}} % Your last name
+
+% All information in this block is optional, comment out any lines you don't need
+\title{Research Statement}
+\address{SCIPP, NS2, Room \#337}{1156 High Street}{Santa Cruz, CA\,\,\,95064} % street, city, country
+%\mobile{(302) 584 3464}
+%\phone{(000) 111 1112}
+%\fax{(000) 111 1113}
+\email{gstark@cern.ch}
+\homepage{giordonstark.com}
+\extrainfo{\footnotesize Built \href{https://github.com/kratsg/faculty-statements/actions/runs/\RUNNUMBER}{\today}\ from \href{https://github.com/kratsg/faculty-statements/tree/\COMMITHASH}{\faIcon{github}@\COMMITHASH}}
+\photo[70pt][0.4pt]{pictures/me.jpg} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
+%\quote{Some quote}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+% https://tex.stackexchange.com/a/47005/32511
+\renewcommand*{\bibliographyhead}[1]{\section{#1}}
+\makecvtitle % Print the CV title
+\vspace*{-4em}
+
+\section{Introduction}
+
+The Standard Model (SM) of particle physics has stood up to rigorous decades of testing by many experiments and has shown to be robust. Even given the experimental success, this is not the complete model. Physicists need to reconcile current tensions between theory and experimental measurements:
+\\
+\begin{itemize}
+ \item the matter/anti-matter asymmetry not observed in the detector~\cite{canetti2012matter},
+ \item the fine-tuning required to the quantum corrections to keep the Higgs mass around the electroweak scale~\cite{Baer:2013ava},
+ \item the lack of inclusion of gravity, and the lack of dark matter candidates~\cite{bertone2005particle} even though physicists agree that dark matter exists~\cite{Ade:2015xua},
+ \item the scale difference between the Planck scale and the Electroweak scale (the so-called Hierarchy problem)~\cite{tHooft:1980xss},
+ \item and many more\\%~\cite{doi:10.1143/PTP.36.1266, VOLKOV1973109, ArkaniHamed:1998rs, Randall:1999ee}
+\end{itemize}
+
+My research at the Large Hadron Collider (LHC) focuses on furthering our understanding of the Standard Model at the energy frontier and answering these questions. I imagine myself like Sherlock Holmes, using the footprints of the collision data to look for patterns to reconstruct a picture of the actual collision. The enormous energy scale of the proton-proton collisions at the ATLAS detector produces showers of Lorentz-boosted partons that form Standard Model hadrons (with interesting substructure) and a large amount of missing transverse momentum (MET). A tell-tale signature of many beyond the Standard Model (BSM) theories.
+\\
+\\
+Over the next decade, I plan to focus on the third and fourth runs of the LHC with a broad research program. First, I plan to expand personpower in the Software and Computing efforts to prepare the ATLAS collaboration for the significant increases in the computing demands by the detector. I can support students, postdocs, and researchers through the NSF-funded IRIS-HEP (Institute for Research and Innovation in Software for High Energy Physics) and HSF (HEP Software Foundation) projects. Second, I want to ramp up a hardware-based trigger program to approach the technical challenges of data throughput and pile-up with an upgraded ATLAS detector and a high-luminosity LHC (HL-LHC). We should take advantage of the commercial development of FPGAs, ASICs, and GPGPUs to maintain a baseline trigger efficiency for physics without blowing up the data-throughput rate for saving to disk. Finally, I plan to advance the physics opportunities at the LHC by making measurements of Standard Model phenomena, searching for signs of rare Standard Model processes at the electroweak energy scale, and studying the robustness of my physics program at future colliders, such as the HL-LHC, FCC, and a muon collider.
+
+\section{Software and Computing}
+Towards the end of this decade, the High Luminosity phase of the LHC will begin. The HEP computing environment is also changing rapidly, and the software needs to evolve to meet the data-intensive scientific research that the HL-LHC demands. This section will describe areas where my research program can significantly advance the field towards the exabyte era.
+
+\subsection{Open Likelihoods and Reproducibility}
+As a postdoc at SCIPP, UC Santa Cruz, I have been in the process of fleshing out my research program within the ATLAS collaboration. I started expanding my BSM portfolio with an ongoing search for supersymmetry (SUSY) via electroweak production. In parallel, I was getting frustrated by the lack of communication and collaboration with particle theorists and phenomenologists. It was apparent that the data the LHC experiments published alongside a paper was not sufficient to allow theorists/phenomenologists to collaborate with us effectively, a multi-pronged problem. The status quo of analysis in ATLAS needed a push to move towards analysis preservation and reproducibility. Outside of ATLAS, we required theorists to come to an agreement on standard formats for various data products~\cite{Cranmer:2021urp, Heinrich2021}.
+\\
+\\
+Alongside a few colleagues within the ATLAS experiment, we started an aggressive campaign to get the analysis encoded in a reproducible workflow and kickstarted the effort for publishing statistical models used in the ATLAS SUSY program~\cite{ATL-PHYS-PUB-2019-029}. So far, the likelihood format has focused on a closed-world statistical model, ``HistFactory'', prolific amongst the LHC experiments. I am a core developer of an open-source python package called ``pyhf'' which enables users to run inference on these public likelihoods. The next step (that would be a wonderful fellowship with IRIS-HEP) is for a physics/math/computer science student to develop a similar format for the open-world statistical models, arbitrary functions in a structured language.
+
+\subsection{Unfolding + Likelihoods}
+To perform a measurement, one must define a series of ``generator-level matching'' selections that allow you to map objects in an event at the reconstruction-level (after detector simulation and reconstruction is performed) to the objects that come out of the generator. This matching is necessary to define a response matrix that describes the detector response to a given generator-level input. We invert this matrix to provide a mapping from the reconstruction-level back to the generator-level. An experimental collider analysis can ``unfold'' observations to make a statement about the perturbative accuracy of the Monte Carlo predictions. Experimentalists then communicate those results to theorists who retune these generators and develop the next generation of theoretical predictions for collider-based experiments. Improving our understanding of the cross-section of various Standard Model processes is a crucial component for all collider-based analyses.
+\\
+\\
+Many implementations of unfolding exist, but one primary limitation is the lack of a robust strategy for handling systematics. The systematics tend to be propagated post-ad-hoc by unfolding the $\pm 1 \sigma$ variations. Using a similar roadmap as closed-world public likelihoods, one can develop a serialized format for the unfolding ``model''  with systematic variations directly included, rather than an afterthought. A capable student would perform a Standard Model measurement within a physics analysis via unfolding, serializing to a format interpretable by ``pyhf'', and run inference. Streamlining this workflow will facilitate a paradigm shift in how theorists and experimentalists communicate measurements and make cross-experiment global fits more feasible.
+
+\section{Physics Searches}
+Theorists have proposed many BSM models to resolve the hierarchy problem or explain the unnatural fine-tuning of the Higgs mass. One such group of theories is known as Supersymmetry (SUSY). SUSY is a generalization of space-time symmetries that predicts new bosonic partners for the fermions and new fermionic partners for the SM bosons, all with spins differing by $\frac{1}{2}$ unit.
+\\
+\\
+In SUSY, the lightest supersymmetric particle (LSP) is a dark matter candidate only if $R$-parity conservation (RPC) is assumed. A stable LSP, such as a gravitino $\tilde{g}$ or a neutralino $\tilde{\chi}_1^0$, will be the primary source of MET in an event. This section discusses opportunities through physics searches at the LHC for students to contribute or base their thesis. I explore three primary avenues: SUSY through strong production, SUSY through electroweak production, and SUSY through global fits.
+
+\subsection{Dark Matter via Strong SUSY}
+One motivation for SUSY has been through ``naturalness''. The argument follows the line of using the strong Yukawa coupling between the top quark and the Higgs boson to motivate a pair of light supersymmetric top squarks (stop). These light stops ($\tilde{t}_1, \tilde{t}_2$) ``naturally'' motivate light gluinos, all of which produce large amounts of hadronic energy, including three jets originating from b-quark decays. This unique signature with many b-jets and MET ($\tilde{\chi}_1^0$). I looked for pair production of gluinos that decayed via strong interactions with third-generation Standard Model particles, $\tilde{g} \to \tilde{t}_1 \tilde{t},  \tilde{t} \to t\tilde{\chi}_1^0, b\tilde{\chi}_1^0$. The analysis set the most robust limits on the mass of the superpartner to the Standard Model gluon particle, the gluino~\cite{SUSY-2016-10, SUSY-2015-10}.  The search is challenging due to the high multiplicity of objects required: a large amount of MET from a stable lightest supersymmetry partner ($\tilde{\chi}_1^0$, a dark matter particle candidate), and clusters of hadronic energy originated from three different b-quarks in the event. Opportunities exist for students to join the team, contribute to this search's electroweak sector, and identify more reinterpretation possibilities.
+
+\subsection{Dark Matter via Electroweak SUSY}
+Perhaps a little ironic, but due to the success of the strong production search program, we've been able to set high lower limits on the masses of various SUSY particles, such as the gluino, $\tilde{g}$, at 2.2 TeV! The squarks and gluinos are rapidly approaching the scale at which the current LHC operation cannot further probe and strongly encourages electroweak SUSY. Instead, we assume the sleptons, sneutrinos, bino, wino, and higgsinos to be at the electroweak scale. The electroweakinos (charginos and neutralinos) and sleptons are less constrained by the ATLAS SUSY program.  One subset of this sector that I am interested in is the compressed SUSY regime, where the LSP $\chi_1^0$ is close in mass to a heavier SUSY partner, such as a chargino ($\tilde{\chi}_1^\pm$), a slepton ($\tilde{\ell}$), or second-lightest neutralino ($\tilde{\chi}_2^0$). We define the level of how compressed a SUSY scenario is by determining the mass difference between the LSP and the next lightest SUSY particle, e.g., $\Delta m(\tilde{\chi}_1^\pm, \tilde{\chi}_2^0)$, smaller values are more compressed.
+\\
+\\
+One such scenario being explored right now with two graduate students at SCIPP is to improve upon the first iteration of the ATLAS analysis~\cite{ATLAS:2019lng} with $140\ \mathrm{fb}^{-1}$ of data to be more competitive with the CMS~\cite{CMS:2019san} result with $36\ \mathrm{fb}^{-1}$ of data in very compressed scenarios. One idea is to explore a Vector Boson Fusion (VBF) topology involving the production of virtual electroweak bosons ($W^*/ Z^*$). In the first wave from ATLAS, the analysis targeted $\Delta m \approx [5, 10]\ \mathrm{GeV}$. We are currently working on improving our sensitivity down to $\Delta m \sim 1\ \mathrm{GeV}$. One such challenge is that a narrower mass splitting translates to a lack of reconstructed leptons in the final state. We need new techniques/handles to explore this highly-compressed region, such as identifying events with two forward jets with a significant separation in rapidity. There is room in this effort for a student to join and perform a reinterpretation with the existing Higgs to Invisible searches, where the preserved Higgs analyses are modified slightly and reprocessed using the SUSY signal models instead.
+
+\subsection{Global Fits}
+Another avenue for looking at compressed electroweak SUSY is through slepton sparticles. Looking at a more moderately compressed region than the electroweakino search in the previous subsection, we can target a final state with a jet originating from initial-state radiation (ISR) and two (soft) reconstructed leptons. To explain my interest in this, I need to step back and talk about the global picture a little bit. I have already mentioned in this statement that one of my goals as a particle physicist is to make measurements of the Standard Model. One such experimental observation to measure the anomalous magnetic moment of the muon was performed recently at Fermilab. The muon $g-2$ experiment measured $a_\mu = (g_\mu-2)/2 = 116 592 061 (41) \times 10^{-11}$~\cite{PhysRevLett.126.141801}. I asked a simple question: ``Do we have any sensitivity to RPC SUSY models compatible with this experimental observation?''~\cite{Chakraborti:2021dli}. The dominant contributions to $\Delta a_\mu$ will come from chargino-sneutrino loops and smuon-neutralino loops due to the muon and photon couplings. I put together a preliminary summary plot that ATLAS SUSY made public, showing the current analysis sensitivity for the two-lepton searches. The plot shows a pretty large gap in the smuon-chargino plane, highlighting a lack of coverage by our comprehensive SUSY search program. The current work in the compressed SUSY analysis will target lighter smuons, but there is room for a project for a student to work on HL-LHC projections for heavier, $g-2$-inspired smuons. At a larger smuon mass, the cross-section falls off enough that more data is needed, $4\ \mathrm{ab}^{-1}$ should be enough, planned to be delivered by the HL-LHC.
+\\
+\\
+Since 2018, I have led the ATLAS SUSY ``summary'' effort involving combinations of different analysis signatures for various SUSY models. Similar to the likelihood effort, I knew there would be a need for a harmonization effort. Through my role as the SUSY Combinations Team Contact, I provided recommendations for object identification and selection criteria, developed the toolchains necessary to combine analyses, and performed statistical combinations of likelihoods. Then starting in 2020, a SUSY Summaries subgroup formed. I became the subgroup convener in recognition of the significant efforts I had made thus far. I continue to lead multiple combination efforts for SUSY models that involve electroweak interactions and third-generation particles. I am also overseeing the Run 2 ATLAS Phenomenological Minimal Supersymmetric Standard Model (pMSSM) effort. The pMSSM scans chart out the ATLAS collaboration's sensitivity reach on a 19-dimensional globe of SUSY. They will identify poorly-covered/uncovered regions of phase-space that a new analysis could target. These efforts would not have been possible without my previous work on a standardized likelihood format and pushing for reproducible analysis workflows.
+
+\section{Instrumentation and Hardware}
+The high pile-up environment at the HL-LHC will make it challenging to achieve our physics goals without a robust trigger system in place. We will have more significant amounts of hadronic energy deposits, and increased trigger thresholds will be needed to maintain the same data-throughput rate. In addition, the increase in instantaneous luminosity to $7 \times 10^{34}\ \mathrm{cm}^{-2}\mathrm{s}^{-1}$, with up to 200 simultaneous proton-proton collisions per bunch crossing, puts pressure on the existing tracking and reconstruction algorithms for the trigger. The collision rate will increase by a factor of 5. The current Inner Detector will be bandwidth-saturated in a high-luminosity, high-pile-up environment, designed to handle up to 50 simultaneous proton-proton collisions at an instantaneous luminosity of $2 \times 10^{34}\ \mathrm{cm}^{-2}\mathrm{s}^{-1}$. Finally, the lack of tracking information in a low-level trigger system makes it that much harder to tackle the challenge of the HL-LHC over the next decade.
+\\
+\\
+I collaborated with technicians, engineers, and scientists to design gFEX (global Feature EXtractor), the first dedicated hardware trigger that efficiently selected events containing Lorentz-boosted hadronic objects and significant missing energy~\cite{Begel:2233958, Tang:2104248}. This work used state-of-the-art embedded processor technologies (FPGAs, SoCs, GPUs) to process the entire ATLAS calorimeter on a single board and make a decision in 25 nanoseconds. The design includes robust algorithms for estimating pile-up, hadronic jet multiplicity, and MET. My colleagues have installed the hardware in the ATLAS detector for Run 3 of the LHC.
+\\
+\\
+I am currently involved in the DOE-funded Inner Tracker (ITk) program at SCIPP, UC Santa Cruz, as part of an extensive international collaboration of institutes working towards improving the charged particle tracking of the ATLAS detector. The baseline goal is to replace the Inner Detector with hardware that provides the same performance in the harsher, radiation-heavy environment of the HL-LHC. The design includes a layout that minimizes the CPU required for track reconstruction, with strategic placement of the pixel sensors within the detector volume.
+\\
+\\
+My plan at NYU would be to take advantage of the recent advancements in tracking, both in software and hardware, and develop an Event Filter (EF) system, approved by the LHC Experiments Committee in 2018. The EF system will run offline-like reconstruction algorithms around tagged objects from upstream hardware such as gFEX and ITk. EF would be an excellent way for students to play an essential role in the ATLAS collaboration and give them a hardware project they can carry in their academic careers. The VBF SUSY search I mentioned earlier relies on an efficient MET trigger and low-threshold single-jet/multi-jet triggers. Similarly, the analyses I currently work on looking for boosted hadronic objects depend on these crucial instrumentation upgrades to maintain the efficacy of the ATLAS SUSY program. Trigger studies, such as evaluating the performance of the EF design in the context of BSM searches~\cite{Bose:2022obr} or SM measurements, are also excellent projects for students to jump in on.
+
+\subsection{Future Colliders}
+The field of particle physics is rapidly expanding, with many options available for the next-generation collider. These new machines will also require detector research and development that I plan to spearhead at NYU. I will be well-positioned to collaborate with local institutions such as Columbia University and Brookhaven National Lab to explore the potential of monolithic active pixel sensors (MAPS) and improved four-dimensional silicon pixel trackers at future facilities such as a muon collider~\cite{Black:2022cth}. Future colliders, like the muon collider, not only serve as a precision measurement Higgs factory but can also measure other SM properties like muon $g-2$~\cite{Chakraborti:2021dli}. A key challenge in the case of the muon collider is to reduce the primary source of beam-induced background: $\mu \to e \nu \bar{\nu}$, a decay that generates electromagnetic showers of low-energy photons and soft neutrons. Mitigating this requires picosecond timing resolution and robust tracking algorithms to reject secondary interactions.
+
+\section{Summary}
+Between emerging technologies, multiple proposed international collider experiments, and the recently completed Snowmass effort - the next decade of particle physics is going to be incredibly interesting. The next five years of my research program will focus on the third run of the LHC, which started at the beginning of 2022, with plenty of opportunities for students to get involved. A critical piece of this research program is the successful operation of the improved trigger system to allow for the efficient triggering of events with MET and Lorentz-boosted objects. The HL-LHC and future colliders will need robust hardware tracking, and I want to explore the potential of improved pixel trackers at your institution.  I hope you can understand my research program's broad scope at the energy frontier, complementing direct searches for new physics with measurements of Standard Model phenomena, supported by a robust R\&D effort in software and hardware.
+
+\printbibliography
+
+\end{document}
