@@ -1,0 +1,80 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt,letterpaper,sans]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
+
+\moderncvtheme[red]{banking}
+% CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+% CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[top=1cm, bottom=1cm]{geometry} % Reduce document margins
+\recomputelengths
+
+\usepackage{fontawesome5}
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+%\setlength{\hintscolumnwidth}{3cm} % Uncomment to change the width of the dates column
+%\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
+
+\input{env.tex}
+
+\renewcommand{\phonesymbol}{\faIcon{phone}\ }
+\renewcommand{\emailsymbol}{\faIcon{envelope}\ }
+\renewcommand{\addresssymbol}{\faIcon{location-arrow}\ }
+\renewcommand{\mobilesymbol}{\faIcon{mobile}\ }
+\renewcommand{\homepagesymbol}{\faIcon{link}\ }
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION SECTION
+%----------------------------------------------------------------------------------------
+
+\firstname{Giordon} % Your first name
+\familyname{Stark} % Your last name
+
+% All information in this block is optional, comment out any lines you don't need
+\title{Cover Letter}
+\address{SCIPP, NS2, Room \#337}{1156 High Street}{Santa Cruz, CA\,\,\,95064} % street, city, country
+%\mobile{(302) 584 3464}
+%\phone{(000) 111 1112}
+%\fax{(000) 111 1113}
+\email{gstark@cern.ch}
+\homepage{giordonstark.com}
+\extrainfo{\footnotesize Built \href{https://github.com/kratsg/faculty-statements/actions/runs/\RUNNUMBER}{\today}\ from \href{https://github.com/kratsg/faculty-statements/tree/\COMMITHASH}{\faIcon{github}@\COMMITHASH}}
+\photo[70pt][0.4pt]{pictures/me.jpg} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
+%\quote{Some quote}
+
+\makeatletter
+\renewcommand*{\makeletterclosing}{
+  \@closing\\[0.5em]%
+  \includegraphics[height=1cm]{pictures/signature}\\% Insert signature
+  {\bfseries \@firstname~\@lastname} (pronouns: he/him/point)%
+  \ifthenelse{\isundefined{\@enclosure}}{}{%
+    \\%
+    \vfill%
+    {\color{color2}\itshape\enclname: \@enclosure}}}
+\makeatother
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\recipient{Harvard University, Department of Physics}{17 Oxford Street\\Cambridge, MA 02138\\jmdavis@fas.harvard.edu}
+\date{October 25th, 2023}
+\opening{Dear Harvard Search Committee and Jolanta Davis,}
+\closing{Sincerely,}
+\enclosure[Enclosed]{curriculum vit\ae{}, Statement of Teaching, Statement of Diversity, Statement of Research, List of Publications, five Letters of Reference}          % use an optional argument to use a string other than "Enclosure", or redefine \enclname
+
+\makelettertitle
+\vspace*{-1em}
+
+I am attaching my application for the job position (294510) at Harvard University: ``Tenure-Track Professor in Physics''. I found this position through the InspireHEP jobs website. I obtained my Ph.D. in Physics from the University of Chicago in 2018 and am currently a postdoctoral scholar employee at the University of California, Santa Cruz, working on the ATLAS Experiment. I am thrilled at the prospect of bringing my experience as a member of the ATLAS collaboration, my dedication to probing the fundamental questions of the Standard Model, and my passion for communicating my knowledge to the physics department at Harvard. My career in physics represents a commitment to the core values that Harvard shares: equity, integrity, responsibility. In my diversity statement, I describe my unique background as a Deaf human in an oral world and how that shapes my passion for community outreach. In teaching, I make my classes accessible to students from all backgrounds to inspire the next generation of scientists. And in research, I work to provide a safe and inclusive environment so that my students, mentees, and colleagues can collaborate and foster new ideas. If appointed, my research program will be focused on searches for new physics with the ATLAS experiment, instrumentation upgrades to support the completion of the HL-LHC physics program, and software development to meet the computing challenges of particle physics over the next decade.
+
+At UChicago and UC Santa Cruz, I have been mentoring undergraduate students and graduate students across all of my research projects in hardware, software, and physics. Under my tutelage, I guided students through their physics analysis, supported them through struggles in their work-life balance, and worked with them to achieve their personal goals. I was proud to mentor one such graduate student, Dr. Jacob Pasner, who graduated from UCSC in 2019 with his Ph.D. on a search for boosted Higgs bosons. He just recently finished his AAAS Fellowship in Washington, DC. I am also active in outreach activities, from giving international plenary talks to students in physics on how to advocate for their education and introducing LHC physics to local high schools through the QuarkNet program. And finally, I was an active participant in the most recent Snowmass community effort to study the prospects of future colliders. My goal is to ensure a broad scope of work for myself and my students and continuity beyond the completion of the LHC program.
+
+Over the next decade, I plan to continue my close collaborations with various institutions and labs, including UChicago, UCSC, Boston, Brandeis, UMass Amherst, and IRIS-HEP, to support my research program of searching for new physics Beyond the Standard Model. In particular, I plan to search for light supersymmetric particles, dark matter candidates compatible with astrophysical and cosmological measurements. At Harvard, I am excited to work closely with the physics faculty and know all of you as scientists and humans. I would also feel remiss if I did not mention a little bit of excitement about being back in the Cambridge area again (and going to Flour). Finally, you will notice that I included a picture and my pronouns on all material (except this letter). As a Deaf physicist, I am a very visual learner, and this should help you associate my story to my face. I am happy to provide any additional material upon request.
+
+\makeletterclosing
+\end{document}
