@@ -28,7 +28,7 @@ jobs:
       changed_files: ${{ steps.set.outputs.changed_files }}
       unchanged_files: ${{ steps.set.outputs.unchanged_files }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: dorny/paths-filter@v2
         id: filter
         with:
@@ -57,7 +57,7 @@ jobs:
 
     steps:
       - name: Set up Git repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Inject environment variables
         run: |
@@ -81,7 +81,7 @@ jobs:
           mv output.pdf ${{ matrix.document }}.pdf
 
       - name: Upload document
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.document }}
           path: ${{ matrix.document }}.pdf
@@ -95,14 +95,14 @@ jobs:
 
     steps:
       - name: Set up Git repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Download previously built document
         run: |
           wget https://kratsg.github.io/faculty-statements/${{ matrix.document }}.pdf -O ${{ matrix.document }}.pdf
 
       - name: Upload document
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.document }}
           path: ${{ matrix.document }}.pdf
@@ -113,14 +113,14 @@ jobs:
     if: ${{ always() && !cancelled() }}
     steps:
       - name: Set up Git repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v1
+        uses: actions/configure-pages@v5
 
       - name: Download documents
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           path: artifacts/
 
@@ -137,7 +137,7 @@ jobs:
         working-directory: deploy
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: deploy/
 
@@ -151,4 +151,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
