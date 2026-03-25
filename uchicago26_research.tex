@@ -1,0 +1,119 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt,a4paper,sans]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
+
+\moderncvtheme[red]{casual}
+% CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+% CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[top=1cm, bottom=3cm]{geometry} % Reduce document margins
+\recomputelengths
+
+\usepackage{fontawesome5}
+
+\input{env.tex}
+
+\renewcommand{\phonesymbol}{\faIcon{phone}\ }
+\renewcommand{\emailsymbol}{\faIcon{envelope}\ }
+\renewcommand{\addresssymbol}{\faIcon{location-arrow}\ }
+\renewcommand{\mobilesymbol}{\faIcon{mobile}\ }
+\renewcommand{\homepagesymbol}{\faIcon{link}\ }
+
+\usepackage[backend=biber,sorting=none]{biblatex}
+\addbibresource{bib/main.bib}
+\addbibresource{bib/uchicago26.bib}
+
+\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION SECTION
+%----------------------------------------------------------------------------------------
+
+\firstname{Giordon} % Your first name
+\familyname{Stark\\[-0.6em]{\fontsize{14}{0}\mdseries\upshape Pronouns: he/him/point}} % Your last name
+
+% All information in this block is optional, comment out any lines you don't need
+\title{Research Statement}
+\address{SCIPP, NS2, Room \#337}{1156 High Street}{Santa Cruz, CA\,\,\,95064} % street, city, country
+%\mobile{(302) 584 3464}
+%\phone{(000) 111 1112}
+%\fax{(000) 111 1113}
+\email{gstark@cern.ch}
+\homepage{giordonstark.com}
+\extrainfo{\footnotesize Built \href{https://github.com/kratsg/faculty-statements/actions/runs/\RUNNUMBER}{\today}\ from \href{https://github.com/kratsg/faculty-statements/tree/\COMMITHASH}{\faIcon{github}@\COMMITHASH}}
+\photo[70pt][0.4pt]{pictures/me.jpg} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
+%\quote{Some quote}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+% https://tex.stackexchange.com/a/47005/32511
+\renewcommand*{\bibliographyhead}[1]{\section{#1}}
+\makecvtitle % Print the CV title
+\vspace*{-4em}
+
+\section{Introduction}
+
+The Standard Model (SM) of particle physics has been tested for decades, but it is incomplete. The matter/antimatter asymmetry~\cite{canetti2012matter}, the fine tuning needed to stabilize the Higgs mass at the electroweak scale~\cite{Baer:2013ava}, the lack of dark matter candidates~\cite{bertone2005particle,Ade:2015xua}, and the hierarchy problem~\cite{tHooft:1980xss} all require physics beyond the Standard Model. My research asks: \textit{where is new physics hiding?} Two possibilities are that new particles have compressed mass spectra, producing soft signatures at the energy frontier, or that they are light, weakly coupled states at the intensity frontier.
+\\
+\\
+These scenarios motivate a dual-experiment research program at the ATLAS detector at the Large Hadron Collider (LHC) and at the Belle~II detector at SuperKEKB. At ATLAS, I search for supersymmetric dark matter candidates with nearly degenerate mass spectra, where the signatures are subtle: soft leptons, photons from radiative decays, and large missing transverse momentum (MET). At Belle~II, I propose to search for a $Z'$ gauge boson coupling to heavy-flavor leptons via the $L_\mu - L_\tau$ symmetry, a minimal dark sector model that addresses rare $B$-decay anomalies and provides a viable dark matter candidate~\cite{Altmannshofer:2016jzy}. These programs would be supported by a software and statistical infrastructure that I helped build: from \texttt{pyhf}~\cite{Heinrich2021} and the HEP Statistics Serialization Standard (HS3) to the BMBF-funded DEMOS project and the HEP Packaging Community; which makes dual-experiment physics reproducible.
+\\
+\\
+At Chicago, I would add new expertise in compressed electroweak supersymmetry and statistical combinations to the existing ATLAS group, while establishing a Belle~II physics and hardware program. The proximity to Argonne National Laboratory and Fermilab, the ATLAS heritage, and the connections to the Scikit-HEP and IRIS-HEP ecosystems fit this program well.
+
+\section{Physics Searches at ATLAS}
+
+\subsection{Compressed Electroweak Supersymmetry}
+In $R$-parity conserving (RPC) SUSY, a stable lightest neutralino $\tilde{\chi}_1^0$ is a dark matter candidate. Scenarios where the lightest electroweakinos are nearly degenerate in mass-compressed spectra are motivated by naturalness arguments and are weakly constrained by direct detection experiments. Using the full Run~2 dataset ($139\ \mathrm{fb}^{-1}$), I led analyses that pushed sensitivity down to mass splittings $\Delta m \sim 1\ \mathrm{GeV}$ using a Vector Boson Fusion topology with virtual electroweak bosons~\cite{ATLAS:2019lng}. These were the first LHC limits that surpassed LEP constraints on compressed sleptons, reaching mass splittings as small as 550~MeV.
+
+\subsection{SUSY Combinations and Global Fits}
+As SUSY Combinations Team Contact and Run~2 Summaries Subconvener, I led the statistical combination of ATLAS electroweak SUSY searches~\cite{ATLAS:2024qxh}, combining 14 analyses across four decay channels ($WW$, $WZ$, $Wh$, GGM). This five year effort based on my work on harmonized object definitions, serialized likelihoods, and preserved analysis workflows extended mass reach by 30--100~GeV beyond individual searches. The parametrized Minimal Supersymmetric Standard Model (pMSSM) interpretation probed a 19 dimensional SUSY parameter space and identified uncovered regions. This program now includes four publications: the electroweak (EWK) combination, EWK pMSSM, RPV-RPC reinterpretation, and a general pMSSM paper.
+\\
+\\
+The muon $g-2$ measurement at Fermilab~\cite{PhysRevLett.126.141801} provides more motivation. I showed that ATLAS SUSY searches have a coverage gap in the smuon-chargino plane for SUSY models compatible with $\Delta a_\mu$~\cite{Chakraborti:2021dli}. Addressing this gap through compressed slepton searches and HL-LHC projections is a priority.
+
+\subsection{Looking Ahead: Run~3 and the HL-LHC}
+My ATLAS physics program at Chicago would focus on searches for dark matter candidates through electroweak SUSY in the compressed regime with Run~3 data ($\sim 300\ \mathrm{fb}^{-1}$) and the full HL-LHC dataset ($3000\ \mathrm{fb}^{-1}$). I initiated a search for radiative neutralino decays ($\tilde{\chi}_2^0 \to \tilde{\chi}_1^0 \gamma$), which become dominant when tree level channels are kinematically suppressed in compressed scenarios. This photon plus MET signature extends LHC sensitivity in the region that connects to the $g-2$ anomaly and would work well for student thesis projects at Chicago. I also plan to pursue pMSSM and GMSB reinterpretations as the data volume grows, using the reinterpretation pipelines I developed~\cite{10.21468/SciPostPhysCodeb.27}.
+
+\section{Physics Searches and Hardware at Belle~II}
+
+\subsection{Dark Matter via $Z'$ Coupling to Heavy Flavor Leptons}
+Belle~II provides sensitivity to light dark sector particles at the intensity frontier. I plan to search for $Z'$ bosons in the $L_\mu - L_\tau$ gauge model, where the $Z'$ couples to muons and taus and can mediate interactions with a dark matter candidate in the $\mathcal{O}(\mathrm{GeV})$ mass range~\cite{Altmannshofer:2016jzy}. Belle~II published the first search for an invisibly decaying $Z'$ in $\mu^+\mu^- +$ missing energy~\cite{Belle-II:2019qfb}, using \texttt{pyhf} for its statistical analysis, showing the software bridge I built between the two experiments. With $575\ \mathrm{fb}^{-1}$ collected and the dataset growing towards $50\ \mathrm{ab}^{-1}$, the sensitivity will improve by 100--1000$\times$ from the first publication. I will bring my expertise in dark matter searches from ATLAS and my statistical tooling to build a reinterpretation pipeline program at Belle~II like what exists at ATLAS, in collaboration with phenomenologists such as Wolfgang Altmannshofer and Stefania Gori at SCIPP.
+
+\subsection{Hardware: The Inner Tracking and Timing Detector}
+The Belle~II collaboration is planning a major detector upgrade for Long Shutdown~2 ($\sim 2027$--2028), with the upgrade baseline to be finalized in July 2026 and a Technical Design Report by 2027. The B-factory Programme Advisory Committee (BPAC)~\cite{BPAC2026} considers the introduction of an Inner Tracking and Timing (ITT) system between the new VTX and the central drift chamber ($17 < R < 34$ cm) to be ``mandatory in order to ensure sustainable operation of the drift chamber in the radiation environment expected after LS2.'' The BPAC notes the ITT ``should help attract new resources to the collaboration.''
+\\
+\\
+I plan to contribute to the ITT through board-level electronics design: the concentrator or ASIC logic that aggregates data from the front-end sensors and feeds the trigger system within Belle~II's 30~kHz maximum trigger rate. This applies my expertise from designing the ATLAS global Feature EXtractor (gFEX)~\cite{Begel:2233958,Tang:2104248}, the first hardware trigger to process the entire ATLAS calorimeter on a single board, and from my work on ITk front-end chips at SCIPP. The ITT's sensor technology will likely use AC-LGADs for precision timing, with the LGAD community and fast-timing readout chips maturing from HL-LHC developments. My contribution would focus on the data path from sensors to trigger: designing the board-level logic that performs hit concentration, timing alignment, and trigger primitive generation within the latency budget. This hardware-software codesign approach, informed by the ML-HEQUPP community whitepaper~\cite{Gonski:2026jgu} on deploying machine learning inference on FPGAs and ASICs in real-time trigger systems, fits with the existing trigger expertise at Chicago and with local laboratory capabilities at Argonne and Fermilab for test-beam infrastructure and ASIC design support.
+
+\section{Software and Statistical Infrastructure}
+
+\subsection{From \texttt{pyhf} to the Next Generation of Statistical Tooling}
+I am a core codeveloper of \texttt{pyhf}~\cite{Heinrich2021}, the pure Python HistFactory implementation that is the standard for statistical analysis preservation in HEP. Over 50 ATLAS analyses now provide machine readable likelihoods via \texttt{pyhf}'s JSON format; it is the primary statistical tool for Belle~II and is used by LHCb, EIC, and future collider efforts. I am currently working on the next-generation tool that builds on lessons from \texttt{pyhf} and the HEP Statistics Serialization Standard (HS3). The gap is support for non-binned, non-HistFactory-based analyses: arbitrary statistical models that arise in unbinned fits, simulation-based inference (SBI), and differentiable analysis pipelines. I am developing \texttt{pyhs3}, the Python engine for HS3, as an institutional partner in the BMBF-funded DEMOS (Democratizing Models) project~\cite{DEMOS2025}, whose scope extends beyond particle physics to nuclear physics, hadron physics, laser-plasma physics, and astrophysics. DEMOS builds computational engines in C++, Python, and Julia, with a model-sharing platform and registry that embeds open-science practices across the ErUM research community.
+\\
+\\
+The statistical ecosystem roadmap was shaped by three IRIS-HEP Blueprint workshops I participated in during February--March 2026: the Statistical Ecosystem Blueprint, the Simulation-Based Inference Blueprint, and the Differentiable Analysis Blueprint. These workshops identified the need for differentiable statistical models that flow through the full analysis pipeline, from event selection through histogram construction to inference, to enable gradient-based optimization of analysis strategies. The JAX-based tooling ecosystem (evermore, optimistix, and the emerging \texttt{pyhs3}) connects to this vision, and my role bridges the statistical methodology, the software implementation, and the experimental physics that drives requirements.
+
+\subsection{Analysis Systems, Facilities, and Reproducibility}
+The HL-LHC will produce an order of magnitude more data than Run~2, requiring a shift in how ATLAS analyses are performed. I am leading efforts to transition ATLAS from C++-based analysis to modern Python columnar workflows using Coffea and ServiceX, evaluating ROOT RNTuple as the next-generation event data format, and integrating distributed workflow systems such as TaskVine. This work directly supports the Analysis Facility at UChicago (AF@UChicago), where I already provide technical support to hundreds of ATLAS physicists adopting these tools and contribute to the facility's infrastructure development and workflow optimization. The analysis facility concept bridges the gap between ML model development and hardware deployment, and AF@UChicago serves as a proving ground for the columnar analysis paradigm that ATLAS will need at HL-LHC luminosities.
+\\
+\\
+My end-to-end reinterpretation pipeline~\cite{10.21468/SciPostPhysCodeb.27}, combining mapyde, RECAST, and REANA, has enabled systematic reuse of ATLAS analyses for new physics models. I have also started the HEP Packaging Community~\cite{HEPPackaging2025}, a cross-cutting open-source effort to modernize the HEP software stack through secure binary conda packages for deployment on emerging ARM architectures and future HPC environments while strengthening supply-chain security and reproducibility. This effort, for which DOE funding has been proposed, provides the infrastructure layer that makes dual-experiment research practical: a single physicist should be able to install and run analysis software for ATLAS and Belle~II through a unified, reproducible packaging system.
+
+\subsection{Agentic AI for HEP Analysis}
+A new direction in my research program applies AI agents with domain-specific HEP knowledge to accelerate physics analysis. I am co-developing the Genesis proposal with the EFI/UChicago team, LBNL, and UCSC to build agentic frameworks that encode expert knowledge of ATLAS analysis procedures, statistical inference via \texttt{pyhf}, fitting strategies, and systematic uncertainty evaluation. These agents would be tightly coupled with the AF@UChicago infrastructure, using the analysis facility as both the execution environment and the feedback loop for agent-driven workflows. This represents a novel independent research direction at the intersection of AI and particle physics that is well aligned with the department's strengths in both areas.
+
+\section{Instrumentation and Future Colliders}
+My instrumentation program spans ATLAS and Belle~II. At ATLAS, I designed and maintain the software toolchain for quality-control testing of $\sim$12,000 ITk pixel modules across $\sim$20 institutes worldwide. At Belle~II, the ITT concentrator electronics described above are a new hardware contribution that uses Chicago's trigger heritage. Looking further ahead, the HL-LHC is the primary driver: Run~4 physics data begins in the early 2030s, with the goal of accumulating $3000\ \mathrm{fb}^{-1}$ at 14~TeV. The CERN Future Circular Collider (FCC) feasibility study was confirmed by CERN Council in 2025, with the European Strategy recommendations expected in 2026. A muon collider at Fermilab, the top recommendation of the 2025 National Academies report, would complement both the FCC program and the Belle~II physics reach. Chicago's proximity to Fermilab, and the existing muon collider detector R\&D program led by my colleagues, makes this a longer-term opportunity. The software and statistical infrastructure I develop is designed to be experiment-agnostic and collider-agnostic, so the tools can serve the field regardless of which machines ultimately operate.
+
+\section{Summary}
+My research program is built on two experimental pillars---ATLAS and Belle~II---connected by a software and statistical ecosystem that enables reproducible, cross-experiment physics. At ATLAS, I pursue dark matter through compressed electroweak SUSY and statistical combinations that map the boundaries of the SUSY landscape. At Belle~II, I propose to search for $Z'$-mediated dark matter candidates in multilepton final states and contribute to the ITT detector upgrade through board-level trigger electronics. The software infrastructure (\texttt{pyhf}, \texttt{pyhs3}/DEMOS, the HEP Packaging Community, and the differentiable analysis ecosystem) connects these programs, while the Analysis Facility at UChicago and the emerging agentic AI direction provide the computational foundation for the next decade. At Chicago, I would bring a new Belle~II program to complement the established ATLAS group, use the proximity to Argonne and Fermilab for hardware development, and contribute to the department's computing and software work for the HL-LHC era.
+
+\printbibliography
+
+\end{document}
