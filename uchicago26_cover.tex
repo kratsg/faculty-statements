@@ -1,0 +1,88 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt,letterpaper,sans]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
+
+\moderncvtheme[red]{banking}
+% CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+% CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[top=1cm, bottom=1cm]{geometry} % Reduce document margins
+\recomputelengths
+
+\usepackage{fontawesome5}
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+%\setlength{\hintscolumnwidth}{3cm} % Uncomment to change the width of the dates column
+%\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
+
+\input{env.tex}
+
+\renewcommand{\phonesymbol}{\faIcon{phone}\ }
+\renewcommand{\emailsymbol}{\faIcon{envelope}\ }
+\renewcommand{\addresssymbol}{\faIcon{location-arrow}\ }
+\renewcommand{\mobilesymbol}{\faIcon{mobile}\ }
+\renewcommand{\homepagesymbol}{\faIcon{link}\ }
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION SECTION
+%----------------------------------------------------------------------------------------
+
+\firstname{Giordon} % Your first name
+\familyname{Stark} % Your last name
+
+% All information in this block is optional, comment out any lines you don't need
+\title{Cover Letter}
+\address{SCIPP, NS2, Room \#337}{1156 High Street}{Santa Cruz, CA\,\,\,95064} % street, city, country
+%\mobile{(302) 584 3464}
+%\phone{(000) 111 1112}
+%\fax{(000) 111 1113}
+\email{gstark@cern.ch}
+\homepage{giordonstark.com}
+\extrainfo{\footnotesize Built \href{https://github.com/kratsg/faculty-statements/actions/runs/\RUNNUMBER}{\today}\ from \href{https://github.com/kratsg/faculty-statements/tree/\COMMITHASH}{\faIcon{github}@\COMMITHASH}}
+\photo[70pt][0.4pt]{pictures/me.jpg} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
+%\quote{Some quote}
+
+\makeatletter
+\renewcommand*{\makeletterclosing}{
+  \@closing\\[0.5em]%
+  \includegraphics[height=1cm]{pictures/signature}\\% Insert signature
+  {\bfseries \@firstname~\@lastname} (pronouns: he/him/point)%
+  \ifthenelse{\isundefined{\@enclosure}}{}{%
+    \\%
+    \vfill%
+    {\color{color2}\itshape\enclname: \@enclosure}}}
+\makeatother
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\recipient{Enrico Fermi Institute}{The University of Chicago\\933 East 56th Street\\South Entrance, Room 101\\Chicago, IL 60637}
+\date{April 20th, 2026}
+\opening{Dear Professor David Miller and the Search Committee,}
+\closing{Sincerely,}
+\enclosure[Enclosed]{curriculum vit\ae{}, List of Publications, two Letters of Reference}          % use an optional argument to use a string other than "Enclosure", or redefine \enclname
+
+\makelettertitle
+\vspace*{-1em}
+
+I am attaching my application for the position (\#184441) at the Enrico Fermi Institute of the University of Chicago: ``Research Assistant Professor position in Computational Particle Physics''. I found this position through the InspireHEP Jobs website. I obtained my Ph.D. in Physics from the University of Chicago in 2018 under the supervision of Professor David Miller and am currently a Project Scientist at the University of California, Santa Cruz, working on the ATLAS Experiment. I am thrilled at the prospect to return to UChicago and to David's group with nearly a decade of experience in exactly the areas this position targets. My work over the past several years has been centered on analysis facility infrastructure, statistical inference tooling, AI-assisted analysis workflows, and community training, and I believe my expertise uniquely maps onto every dimension of the advertised scope.
+
+At UC Santa Cruz, I contribute to the USATLAS Operations program by managing a heterogeneous Kubernetes-based computing cluster with GPU nodes and diverse storage systems. I have led the development and deployment of facility services including Dask Gateway for scalable distributed computing, Triton Inference-as-a-Service for ML model serving, automated benchmarking of the computing cluster using typical analysis workflows, and refreshing the documentation for the USATLAS Analysis Facility at UChicago. This work directly supports hundreds of ATLAS physicists around the world in their day-to-day analyses. Through IRIS-HEP's Analysis Systems focus area, I have contributed to the development of columnar analysis frameworks and analysis preservation workflows using REANA and RECAST. I am intimately familiar with the operational challenges of running a REANA cluster as part of a computing facility, and with the user-facing support required to make these platforms productive for a diverse physics community.
+
+I am a core developer of \texttt{pyhf}, the Python-based statistical modeling framework built on automatic differentiation backends that has become the de facto standard for HistFactory-based likelihood publication and analysis preservation in ATLAS. This framework enabled ATLAS to become the first LHC experiment to publish full statistical likelihoods, has been used in over 40 published ATLAS analyses, is the official statistical tool for Belle~2, and enables large-scale analysis combinations and reinterpretations across the broader HEP community. I leveraged \texttt{pyhf} to lead the first large-scale statistical combination of 14 electroweak SUSY searches at the LHC, extending mass exclusion limits by up to 100~GeV and published in PRL. Building on this foundation, I am the maintainer and lead developer of \texttt{pyhs3}, a next-generation Python implementation of the HEP Statistics Serialization Standard that provides a human-friendly computational graph interface to serialized probability models beyond what HistFactory can encode. This work, carried out with my undergraduate mentee Allex Smith, is developed in partnership with the BMBF-funded ``Democratizing Models'' project and positions the community for the statistical challenges of the HL-LHC era.
+
+I have worked to support the deployment of an LLM-based AI assistant within the UChicago Analysis Facility environment, providing natural-language support for data access, workflow optimization, and debugging specific to the ATLAS analysis context. This is ongoing work that I am actively expanding: I have developed MCP tool servers for experimental databases that allow AI agents to programmatically search datasets, check replicas, retrieve cross-sections, and validate sample metadata, and I am building a community-contributed Analysis Facility Skills Marketplace for reusable domain skills. I have a pending DOE proposal under Genesis Mission to develop these agentic AI systems further, with integrated domain knowledge of ATLAS workflows, statistical inference, and analysis facility infrastructure. This proposal aligns with the broader U.S. ATLAS AI/ML strategy, which I have helped shape through contributions to community whitepapers on machine learning applications in high energy physics.
+
+I have extensive experience developing training materials, documentation, and instructional resources for scientific software. I have organized and contributed to over 40 workshops and bootcamps through the HEP Software Foundation, Software Carpentry, and IRIS-HEP, and I have developed ATLAS Open Data training modules deployed through the UChicago Analysis Facility's BinderHub service. I currently serve on the Executive Committee of the DPF Coordinating Panel for Software and Computing, where I help coordinate community software initiatives and have contributed to national planning exercises including the Snowmass process. As co-administrator of the Scikit-HEP organization since 2017, I have helped build and sustain the Python ecosystem for particle physics. I also have experience with open-source software packaging through the HEP Software Packaging Initiative (HEP-SPIn), an effort to modernize HEP software distribution through conda-forge packaging to improve security, reproducibility, and cross-platform portability, where I maintain over 30 conda-forge feedstocks for HEP tools.
+
+Throughout my career, I have maintained an active physics analysis program focused on searches for physics Beyond the Standard Model, particularly Electroweak Supersymmetry and light dark matter candidates. I have served as Analysis Contact for multiple major ATLAS physics results. I also have significant experience with detector hardware QC software: at UCSC, I built the full ITk pixel module test bench infrastructure, created the Python library for the ATLAS ITk Production Database, and developed QC/QA software used across multiple international testing clusters. At both UChicago and UC Santa Cruz, I have mentored undergraduate and graduate students across hardware, software, and physics projects. I am also active in outreach, from international plenary talks on advocating for education in physics to introducing LHC physics to local high schools through the QuarkNet program. My career represents a commitment to the core values that UChicago shares: diversity, equity, and inclusion. As a Deaf physicist, living in an oral world shapes my passion for community outreach. I am committed to making all of my educational materials accessible to people of all backgrounds to inspire the next generation of scientists. In academia, I work to provide a safe and inclusive environment so that my students, mentees, and colleagues can collaborate and foster new ideas. I have served on the ATLAS Early Career Scientist Board and the USATLAS Diversity and Inclusion Committee, and I contributed to the Snowmass whitepaper on accessibility in high-energy physics and developed ASL content for physics education.
+
+I am excited at the prospect of bringing my experience back to the Enrico Fermi Institute, working closely with David and the UChicago group to advance the U.S. ATLAS Computing Operations program, and continuing to build the tools and infrastructure that will define how we do physics in the HL-LHC era. I am happy to provide any additional material upon request.
+
+\makeletterclosing
+\end{document}
