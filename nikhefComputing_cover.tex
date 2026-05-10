@@ -1,0 +1,89 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt,letterpaper,sans]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
+
+\moderncvstyle{banking}
+\moderncvcolor{red}
+% CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+% CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[top=1cm, bottom=1cm]{geometry} % Reduce document margins
+\recomputelengths
+
+\usepackage{fontawesome5}
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+%\setlength{\hintscolumnwidth}{3cm} % Uncomment to change the width of the dates column
+%\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
+
+\input{env.tex}
+
+\renewcommand{\phonesymbol}{\faIcon{phone}\ }
+\renewcommand{\emailsymbol}{\faIcon{envelope}\ }
+\renewcommand{\addresssymbol}{\faIcon{location-arrow}\ }
+\renewcommand{\mobilesymbol}{\faIcon{mobile}\ }
+\renewcommand{\homepagesymbol}{\faIcon{link}\ }
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION SECTION
+%----------------------------------------------------------------------------------------
+
+\firstname{Giordon} % Your first name
+\familyname{Stark} % Your last name
+
+% All information in this block is optional, comment out any lines you don't need
+\title{Cover Letter}
+\address{SCIPP, NS2, Room \#337}{1156 High Street}{Santa Cruz, CA\,\,\,95064} % street, city, country
+%\mobile{(302) 584 3464}
+%\phone{(000) 111 1112}
+%\fax{(000) 111 1113}
+\email{gstark@cern.ch}
+\homepage{giordonstark.com}
+\extrainfo{\footnotesize Built \href{https://github.com/kratsg/faculty-statements/actions/runs/\RUNNUMBER}{\today}\ from \href{https://github.com/kratsg/faculty-statements/tree/\COMMITHASH}{\faIcon{github}@\COMMITHASH}}
+\photo[70pt][0.4pt]{pictures/me.jpg} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
+%\quote{Some quote}
+
+\makeatletter
+\renewcommand*{\makeletterclosing}{
+  \@closing\\[0.5em]%
+  \includegraphics[height=1cm]{pictures/signature}\\% Insert signature
+  {\bfseries \@firstname~\@lastname} (pronouns: he/him/point)%
+  \ifthenelse{\isundefined{\@enclosure}}{}{%
+    \\%
+    \vfill%
+    {\color{color2}\itshape\enclname: \@enclosure}}}
+\makeatother
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\recipient{Nikhef}{Science Park 105\\1098 XG Amsterdam\\The Netherlands}
+\date{May 10th, 2026}
+\opening{Dear Professor Groep and the Search Committee,}
+\closing{Sincerely,}
+\enclosure[Enclosed]{curriculum vit\ae{}, List of Publications, contact details for three referees}
+
+\makelettertitle
+\vspace*{-1em}
+
+I am writing to apply for the Staff Scientist position in Computing Infrastructure for AI and Data Processing at Nikhef. I obtained my Ph.D.\ in Physics from the University of Chicago in 2018 and am currently a Project Scientist at the University of California, Santa Cruz, working on the ATLAS Experiment. For the past several years my work has sat at the intersection of computing infrastructure, statistical inference tooling, and AI-assisted analysis workflows for large-scale particle physics. I am excited by the opportunity to bring this experience to Nikhef's Physics Data Processing group and the new AI/ML research group, and to help shape the computing that will enable the next generation of particle and astroparticle physics research.
+
+At UC Santa Cruz, I contribute to the USATLAS Operations program by managing a heterogeneous Kubernetes-based computing cluster with GPU nodes and diverse storage systems. I have led the development and deployment of facility services including Dask Gateway for scalable distributed computing, Triton Inference-as-a-Service for ML model serving, automated benchmarking of the cluster using typical analysis workflows, and documentation for the USATLAS Analysis Facility at UChicago. This work directly supports hundreds of ATLAS physicists in their day-to-day analyses. I am intimately familiar with the operational challenges of running analysis facilities at scale, from storage and scheduling to user-facing support, and with the infrastructure choices required to make these platforms productive for a diverse physics community. Through IRIS-HEP's Analysis Systems focus area, I have contributed to columnar analysis frameworks and analysis preservation workflows using REANA, including the operational realities of running a REANA cluster as part of a shared computing facility. All of this maps onto the Nikhef PDP programme's scope: high-throughput computing, accelerated and heterogeneous infrastructure, and the federated e-infrastructure model that underpins the Netherlands Tier-1.
+
+I am a core developer of \texttt{pyhf}, the Python-based statistical modeling framework built on automatic differentiation backends that has become the de facto standard for HistFactory-based likelihood publication and analysis preservation in ATLAS. This framework enabled ATLAS to become the first LHC experiment to publish full statistical likelihoods, has been used in over 40 published ATLAS analyses, is the official statistical tool for Belle~2, and enables large-scale analysis combinations and reinterpretations across the broader HEP community. I leveraged \texttt{pyhf} to lead the first large-scale statistical combination of 14 electroweak SUSY searches at the LHC, extending mass exclusion limits by up to 100~GeV and published in PRL. Building on this, I am the lead developer of \texttt{pyhs3}, a next-generation Python implementation of the HEP Statistics Serialization Standard developed in partnership with the BMBF-funded ``Democratizing Models'' (DEMOS) project. This kind of cross-border, multi-institution tooling effort is exactly the sort of collaboration I would bring to Nikhef's partnerships with DESY, CERN, and the broader European computing community.
+
+On the AI/ML infrastructure side, I have worked on deploying an LLM-based AI assistant within the UChicago Analysis Facility environment, providing natural-language support for data access, workflow optimization, and debugging. I have developed MCP tool servers that allow AI agents to programmatically search experimental databases, check data replicas, retrieve cross-sections, and validate sample metadata. I am building a community-contributed Skills Marketplace for reusable domain knowledge modules. I have a pending DOE proposal to develop these agentic AI systems further, integrating domain knowledge of ATLAS workflows, statistical inference, and analysis facility infrastructure. Nikhef's new AI/ML group, with its mandate to develop technology with broad applicability across particle and astroparticle physics programmes, is a natural home for this kind of work. I am particularly interested in the opportunity to develop computing systems purpose-built for AI/ML workloads and to collaborate with the national and European AI-in-science initiatives that Nikhef is joining.
+
+I have extensive experience in community training and open-source software stewardship. I have organized and contributed to over 40 workshops and bootcamps through the HEP Software Foundation, Software Carpentry, and IRIS-HEP. I serve on the Executive Committee of the DPF Coordinating Panel for Software and Computing, where I help coordinate community software initiatives and have contributed to national planning exercises including the Snowmass process. As co-administrator of the Scikit-HEP organization since 2017, I have helped build and sustain the Python ecosystem for particle physics. I also lead the HEP Software Packaging Initiative (HEP-SPIn), an effort to modernize HEP software distribution through conda-forge, where I maintain over 30 feedstocks for HEP tools. These experiences have taught me how to work across institutional and national boundaries, which I understand to be a hallmark of the Nikhef approach.
+
+I should note that I am enthusiastic about joining the Nikhef community beyond the scope of the position itself. I value the collaborative, welcoming environment described in the posting, and I am committed to contributing to that atmosphere. As a Deaf physicist, I have spent my career working to make scientific tools and training materials accessible to people of all backgrounds, from developing ASL content for physics education to contributing to the Snowmass whitepaper on accessibility in high-energy physics. I am also willing to learn Dutch as needed to communicate effectively in the national context.
+
+I am excited by the prospect of working at Nikhef, contributing to the PDP programme and the new AI/ML group, and helping shape the computing infrastructure that will define how we do physics in the HL-LHC era and beyond. I am happy to provide any additional material upon request.
+
+\makeletterclosing
+\end{document}
