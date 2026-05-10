@@ -70,7 +70,7 @@ jobs:
         uses: xu-cheng/latex-action@v4
         with:
           root_file: ${{ matrix.document }}.tex
-          docker_image: ghcr.io/xu-cheng/texlive-full@sha256:9aa57c8ddef934cb1f25837539c654980680ea4d42554a05ca7a672845ebfe6a
+          texlive_version: 2024
 
       - name: Compress LaTeX document
         if: ${{ contains(needs.changes.outputs.changed_files, matrix.document) }}
