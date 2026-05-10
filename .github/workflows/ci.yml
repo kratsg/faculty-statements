@@ -70,7 +70,7 @@ jobs:
         uses: xu-cheng/latex-action@v4
         with:
           root_file: ${{ matrix.document }}.tex
-          texlive_version: 2024
+          texlive_version: 2023
 
       - name: Compress LaTeX document
         if: ${{ contains(needs.changes.outputs.changed_files, matrix.document) }}
