@@ -1,0 +1,83 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\documentclass[10pt,letterpaper,sans]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
+
+\moderncvtheme[red]{banking}
+% CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+% CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[top=1cm, bottom=1cm, left=2cm, right=2cm]{geometry} % Reduce document margins
+\recomputelengths
+
+\usepackage{fontawesome5}
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+%\setlength{\hintscolumnwidth}{3cm} % Uncomment to change the width of the dates column
+%\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
+
+\input{env.tex}
+
+\renewcommand{\phonesymbol}{\faIcon{phone}\ }
+\renewcommand{\emailsymbol}{\faIcon{envelope}\ }
+\renewcommand{\addresssymbol}{\faIcon{location-arrow}\ }
+\renewcommand{\mobilesymbol}{\faIcon{mobile}\ }
+\renewcommand{\homepagesymbol}{\faIcon{link}\ }
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION SECTION
+%----------------------------------------------------------------------------------------
+
+\firstname{Giordon} % Your first name
+\familyname{Stark} % Your last name
+
+% All information in this block is optional, comment out any lines you don't need
+\title{Cover Letter}
+\address{Giordon Stark}{132 Kenneth Street}{Santa Cruz, CA\,\,\,95060} % street, city, country
+%\mobile{(302) 584 3464}
+%\phone{(000) 111 1112}
+%\fax{(000) 111 1113}
+\email{kratsg@gmail.com}
+\homepage{giordonstark.com}
+%\extrainfo{\footnotesize Built \href{https://github.com/kratsg/faculty-statements/actions/runs/\RUNNUMBER}{\today}\ from \href{https://github.com/kratsg/faculty-statements/tree/\COMMITHASH}{\faIcon{github}@\COMMITHASH}}
+%\photo[70pt][0.4pt]{pictures/me.jpg} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
+%\quote{Some quote}
+
+\makeatletter
+\renewcommand*{\makeletterclosing}{
+  \@closing\\[0.5em]%
+  \includegraphics[height=1cm]{pictures/signature}\\% Insert signature
+  {\bfseries \@firstname~\@lastname} (pronouns: he/him/point)%
+  \ifthenelse{\isundefined{\@enclosure}}{}{%
+    \\%
+    \vfill%
+    {\color{color2}\itshape\enclname: \@enclosure}}}
+\makeatother
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\recipient{OpenTeams}{Hiring Team}   % add street address if you have one
+\date{June 18th, 2026}
+\opening{To whom it may concern,}
+\closing{Sincerely,}
+\enclosure[Enclosed]{resume}
+
+\makelettertitle
+\vspace*{-1em}
+
+Hi OpenTeams, my name is Giordon Stark, and I am what you might call a ``licensed quantum mechanic.'' Over the past decade I have balanced the trifecta that rattles my brain: physics, software, and hardware. As you have probably guessed from this letter, I am considering a transition from academia into industry, and your Engineer/Senior Engineer, Packaging role caught my eye, -in no small part because OpenTeams treats open source as an ethos rather than a marketing line. I believe I am a strong fit. You list packaging for Conda, compiled build systems, cross-platform reliability, CI/CD, scientific computing, and client- and community-facing communication; these are, more or less, the contents of my week.
+
+I am a core developer of pyhf, the library that made ATLAS the first particle-physics experiment to publish full statistical likelihoods, and a co-administrator of the Scikit-HEP organization. A large part of that work is the unglamorous-but-essential packaging layer: shipping libraries to both PyPI and conda-forge and keeping them installable across Linux, macOS, and Windows, so that a graduate student on an unfamiliar machine can \texttt{pip install} or \texttt{conda install} and have it simply work. Scientific Python is not pure Python; it rests on a mountain of compiled C/C++/Fortran that has to be built, linked, and distributed correctly, and the gap between ``compiles on my Linux box'' and ``installs cleanly on a colleague's Windows laptop'' is exactly where I spend my time.
+
+Most of that effort runs through HEP Packaging Coordination, a community project I help run that now distributes more than 100 high-energy-physics tools on conda-forge. I author and maintain feedstocks for some genuinely unpleasant compiled software such as ROOT, Geant4, Pythia8, and friends; working with CMake and Meson builds, compilers, and linkers into reproducible cross-platform packages, and reporting fixes upstream rather than routing around them. I lean heavily on pixi to make those environments reproducible day to day, and I have spent years inside CI/CD pipelines for build, test, and release automation; I also helped drag a 5000-person collaboration out of Subversion into Git and GitLab, then taught the three-hour CI/CD crash course to make the migration stick.
+
+The part of this role I am most drawn to is the client- and community-facing piece. In ATLAS, everyone who contributes for a year becomes an author, which means every analysis I led was circulated to thousands of people with opinions on my uncertainties, my methods, and whether my color choices insulted their sensibilities. I learned early that feedback is a gift, and that the job is half engineering and half making sure nobody feels like they are taking a backseat. I treat software literacy as something everyone deserves access to, which is why documentation, teaching, and upstream communication are part of my ethos
+
+In short, I would be a good fit: I pick up new tools quickly, I handle steep learning curves, and I care about the open-source health of the things I ship. There are plenty of other quirky skills that do not fit in a cover letter such as baking sourdough and pavlovas, the various languages (programming or otherwise) I have dabbled in, an apparently unkillable instinct for finding bugs, but feel free to ask. I hope to hear from you soon.
+
+\makeletterclosing
+\end{document}
