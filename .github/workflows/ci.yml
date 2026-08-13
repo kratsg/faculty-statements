@@ -8,11 +8,8 @@ on:
     branches:
       - main
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+# Default to no permissions; each job below grants only what it needs.
+permissions: {}
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
@@ -21,35 +18,45 @@ concurrency:
 jobs:
 
   changes:
+    name: Detect changed documents
     runs-on: ubuntu-latest
+    permissions:
+      contents: read  # checkout repo to diff changed .tex files
     outputs:
       changed: ${{ steps.filter.outputs.changed }}
       all_files: ${{ steps.set.outputs.all_files }}
       changed_files: ${{ steps.set.outputs.changed_files }}
       unchanged_files: ${{ steps.set.outputs.unchanged_files }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: dorny/paths-filter@v2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: dorny/paths-filter@ceb8a2b8f2d89434be7ff52d3de7ec3738c5cc9d # v4.0.3
         id: filter
         with:
           list-files: json
           filters: |
             changed: '!(env).tex'
       - id: set
+        env:
+          CHANGED_FILES_JSON: ${{ steps.filter.outputs.changed_files }}
         run: |
           ALL_FILES=$(find . -type f -name "*.tex" -not -name "env.tex" | xargs -n1 basename | sed 's/.tex//g' | jq -R -s -c 'split("\n")[:-1]')
           echo "::set-output name=all_files::${ALL_FILES}"
           printf "Setting all_files=${ALL_FILES}\n"
-          CHANGED_FILES=$(printf ${{ toJSON(steps.filter.outputs.changed_files) }} | sed 's/.tex//g' | jq -c '.[] |= .')
+          CHANGED_FILES=$(printf '%s' "$CHANGED_FILES_JSON" | sed 's/.tex//g' | jq -c '.[] |= .')
           echo "::set-output name=changed_files::${CHANGED_FILES}"
           printf "Setting changed_files=${CHANGED_FILES}\n"
-          UNCHANGED_FILES=$(jq -n -c --argjson all_files ${ALL_FILES} --argjson changed_files ${CHANGED_FILES} '$all_files-$changed_files')
+          UNCHANGED_FILES=$(jq -n -c --argjson all_files "${ALL_FILES}" --argjson changed_files "${CHANGED_FILES}" '$all_files-$changed_files')
           echo "::set-output name=unchanged_files::${UNCHANGED_FILES}"
           printf "Setting unchanged_files=${UNCHANGED_FILES}\n"
 
   build_latex:
+    name: Build changed LaTeX documents
     needs: [changes]
     runs-on: ubuntu-latest
+    permissions:
+      contents: read  # checkout repo to build tex documents
     if: needs.changes.outputs.changed == 'true'
     strategy:
       matrix:
@@ -57,7 +64,9 @@ jobs:
 
     steps:
       - name: Set up Git repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Inject environment variables
         run: |
@@ -67,61 +76,76 @@ jobs:
 
       - name: Compile LaTeX document
         if: ${{ contains(needs.changes.outputs.changed_files, matrix.document) }}
-        uses: xu-cheng/latex-action@v4
+        uses: xu-cheng/latex-action@6549dc21effb2730855a1281407ecfcececc6c1b # 4.1.0
         with:
           root_file: ${{ matrix.document }}.tex
           texlive_version: 2023
 
       - name: Compress LaTeX document
         if: ${{ contains(needs.changes.outputs.changed_files, matrix.document) }}
+        env:
+          DOCUMENT: ${{ matrix.document }}
         run: |
           sudo apt update
           sudo apt install ghostscript -y
-          gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf ${{ matrix.document }}.pdf
+          gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf "$DOCUMENT.pdf"
           du -sh *.pdf
-          mv output.pdf ${{ matrix.document }}.pdf
+          mv output.pdf "$DOCUMENT.pdf"
 
       - name: Upload document
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: ${{ matrix.document }}
           path: ${{ matrix.document }}.pdf
 
   use_cache:
+    name: Reuse cached LaTeX documents
     needs: [changes]
     runs-on: ubuntu-latest
+    permissions:
+      contents: read  # checkout repo to download cached tex documents
     strategy:
       matrix:
         document: ${{ fromJSON(needs.changes.outputs.unchanged_files) }}
 
     steps:
       - name: Set up Git repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Download previously built document
+        env:
+          DOCUMENT: ${{ matrix.document }}
         run: |
-          wget https://kratsg.github.io/faculty-statements/${{ matrix.document }}.pdf -O ${{ matrix.document }}.pdf
+          wget "https://kratsg.github.io/faculty-statements/$DOCUMENT.pdf" -O "$DOCUMENT.pdf"
 
       - name: Upload document
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: ${{ matrix.document }}
           path: ${{ matrix.document }}.pdf
 
   prepare_website:
+    name: Prepare Pages site
     runs-on: ubuntu-latest
+    permissions:
+      contents: read  # checkout repo to assemble the deploy directory
+      pages: write    # query GitHub Pages site configuration
     needs: [build_latex, use_cache]
     if: ${{ always() && !cancelled() }}
     steps:
       - name: Set up Git repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
 
       - name: Download documents
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           path: artifacts/
 
@@ -138,18 +162,22 @@ jobs:
         working-directory: deploy
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: deploy/
 
   deploy:
+    name: Deploy to GitHub Pages
     if: ${{ github.ref == 'refs/heads/main' && always() && !cancelled() }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    permissions:
+      pages: write     # create the Pages deployment
+      id-token: write  # verify the deployment via OIDC
     needs: prepare_website
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0
